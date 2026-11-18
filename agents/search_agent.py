@@ -7,11 +7,13 @@ Cómo funciona un episodio (igual que SID-2, pero sin entrenar, solo con prompti
     3. Cuando cree que tiene lo necesario, llama a report_ids con un ranking de IDs.
     4. Si se queda sin turnos, rellenamos con BM25 de la pregunta original (y lo contamos).
 
-El bucle está en `search()`. Léelo despacio: ESTO es un harness de agente.
+El bucle está en `run_episode()`. Léelo despacio: ESTO es un harness de agente.
+El swarm (agents/swarm.py) reutiliza este mismo bucle añadiendo herramientas y un buzón.
 """
 import json
 import os
 import time
+from typing import Callable
 
 import anthropic
 
@@ -69,9 +71,16 @@ TOOLS = [
 ]
 
 
+def new_stats() -> dict:
+    return {"turns": 0, "searches": 0, "reads": 0, "messages": 0, "input_tokens": 0,
+            "output_tokens": 0, "reported": False, "padded": 0, "llm_time_s": 0.0,
+            "queries": []}
+
+
 class SearchAgent:
-    def __init__(self, corpus: dict[str, dict], model: str = MODEL, verbose: bool = False):
-        self.bm25 = BM25Retriever(corpus)
+    def __init__(self, corpus: dict[str, dict], model: str = MODEL, verbose: bool = False,
+                 bm25: BM25Retriever | None = None):
+        self.bm25 = bm25 or BM25Retriever(corpus)
         self.corpus = corpus
         self.model = model
         self.verbose = verbose
@@ -99,11 +108,25 @@ class SearchAgent:
 
     # ---------------- el bucle (el harness) ----------------
 
-    def search(self, query: str, k: int = 10) -> list[str]:
+    def run_episode(
+        self,
+        query: str,
+        system: str = SYSTEM_PROMPT,
+        extra_tools: list[dict] | None = None,
+        handle_extra: Callable[[str, dict], str] | None = None,
+        inbox: Callable[[], str] | None = None,
+        tag: str = "",
+    ) -> tuple[list[str], dict]:
+        """Un episodio completo. Devuelve (IDs reportados SIN rellenar, estadísticas).
+
+        extra_tools / handle_extra: herramientas adicionales (el swarm añade `message`).
+        inbox: función que devuelve mensajes nuevos de otros agentes; se añaden al
+               siguiente resultado de herramienta, igual que en SID-2.
+        """
+        tools = TOOLS + (extra_tools or [])
         messages = [{"role": "user", "content": f"Claim: {query}"}]
         seen: set[str] = set()
-        stats = {"turns": 0, "searches": 0, "reads": 0, "input_tokens": 0,
-                 "output_tokens": 0, "reported": False, "padded": 0, "llm_time_s": 0.0}
+        stats = new_stats()
         reported: list[str] = []
 
         for _ in range(MAX_TURNS):
@@ -111,8 +134,8 @@ class SearchAgent:
             response = self.client.messages.create(
                 model=self.model,
                 max_tokens=1024,
-                system=SYSTEM_PROMPT,
-                tools=TOOLS,
+                system=system,
+                tools=tools,
                 messages=messages,
             )
             stats["llm_time_s"] += time.perf_counter() - t0
@@ -133,6 +156,7 @@ class SearchAgent:
             for call in tool_calls:
                 if call.name == "search":
                     stats["searches"] += 1
+                    stats["queries"].append(call.input["query"])
                     out = self._tool_search(call.input["query"], seen)
                 elif call.name == "read_doc":
                     stats["reads"] += 1
@@ -142,23 +166,36 @@ class SearchAgent:
                     stats["reported"] = True
                     done = True
                     out = "Reported."
+                elif handle_extra is not None:
+                    if call.name == "message":
+                        stats["messages"] += 1
+                    out = handle_extra(call.name, call.input)
                 else:
                     out = f"Unknown tool: {call.name}"
                 if self.verbose:
-                    print(f"  -> {call.name}({json.dumps(call.input)[:80]})")
+                    print(f"  {tag}-> {call.name}({json.dumps(call.input)[:80]})")
                 results.append({"type": "tool_result", "tool_use_id": call.id, "content": out})
 
             if done:
                 break
+
+            # Buzón: los mensajes de otros agentes llegan pegados al último resultado
+            if inbox is not None:
+                news = inbox()
+                if news:
+                    results[-1]["content"] += f"\n\n--- Messages from teammates ---\n{news}"
+
             messages.append({"role": "user", "content": results})
 
-        # Limpiamos: solo IDs válidos, sin duplicados, en orden
-        ranked: list[str] = []
+        clean: list[str] = []
         for d in reported:
-            if d in self.corpus and d not in ranked:
-                ranked.append(d)
+            if d in self.corpus and d not in clean:
+                clean.append(d)
+        return clean, stats
 
-        # Si el agente reporta menos de k (o se quedó sin turnos), rellenamos con BM25
+    def pad_with_bm25(self, ranked: list[str], query: str, k: int, stats: dict) -> list[str]:
+        """Si hay menos de k IDs, rellena con BM25 de la pregunta original."""
+        ranked = list(ranked)
         if len(ranked) < k:
             for d in self.bm25.search(query, k * 2):
                 if d not in ranked:
@@ -166,6 +203,10 @@ class SearchAgent:
                     stats["padded"] += 1
                 if len(ranked) >= k:
                     break
-
-        self.last_stats = stats
         return ranked[:k]
+
+    def search(self, query: str, k: int = 10) -> list[str]:
+        reported, stats = self.run_episode(query)
+        ranked = self.pad_with_bm25(reported, query, k, stats)
+        self.last_stats = stats
+        return ranked

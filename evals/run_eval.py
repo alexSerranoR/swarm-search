@@ -6,6 +6,8 @@ Uso:
     python evals/run_eval.py --retriever bm25
     python evals/run_eval.py --retriever agent --limit 5 --verbose   # prueba barata primero
     python evals/run_eval.py --retriever agent --limit 50
+    python evals/run_eval.py --retriever rrf_n --limit 30     # fase 4: N agentes independientes + RRF
+    python evals/run_eval.py --retriever swarm --limit 30     # fase 4: N agentes que se hablan + RRF
 """
 import argparse
 import json
@@ -32,7 +34,12 @@ def build_retriever(name: str, corpus, verbose: bool = False):
     if name == "agent":
         from agents.search_agent import SearchAgent
         return SearchAgent(corpus, verbose=verbose)
-    # Fase 4: "swarm", "rrf_n"...
+    if name == "rrf_n":
+        from agents.swarm import RRFEnsemble
+        return RRFEnsemble(corpus, verbose=verbose)
+    if name == "swarm":
+        from agents.swarm import Swarm
+        return Swarm(corpus, verbose=verbose)
     raise ValueError(f"Retriever desconocido: {name}")
 
 
@@ -90,6 +97,9 @@ def main() -> None:
         summary["total_input_tokens"] = sum(s["input_tokens"] for s in with_stats)
         summary["total_output_tokens"] = sum(s["output_tokens"] for s in with_stats)
         summary["pct_reported"] = sum(1 for s in with_stats if s["reported"]) / n
+        summary["mean_messages"] = sum(s.get("messages", 0) for s in with_stats) / n
+        if any("dup_query_rate" in s for s in with_stats):
+            summary["dup_query_rate"] = sum(s.get("dup_query_rate", 0) for s in with_stats) / n
 
     suffix = f"_n{args.limit}" if args.limit else ""
     out = ROOT / "results" / f"{args.dataset}_{args.retriever}{suffix}.json"
@@ -105,6 +115,10 @@ def main() -> None:
         print(f"  tokens    : {summary['total_input_tokens']:,} input / "
               f"{summary['total_output_tokens']:,} output (míralo en la Console para el coste)")
         print(f"  reportó   : {summary['pct_reported'] * 100:.0f}% de las queries")
+        if summary["mean_messages"]:
+            print(f"  mensajes  : {summary['mean_messages']:.1f} por query entre agentes")
+        if "dup_query_rate" in summary:
+            print(f"  duplicadas: {summary['dup_query_rate'] * 100:.0f}% de las busquedas repiten la de otro agente")
     print(f"  guardado en {out.relative_to(ROOT)}")
 
 
