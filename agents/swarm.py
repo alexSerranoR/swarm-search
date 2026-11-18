@@ -17,7 +17,7 @@ import threading
 import time
 from concurrent.futures import ThreadPoolExecutor
 
-from agents.search_agent import SYSTEM_PROMPT, SearchAgent, new_stats
+from agents.search_agent import SearchAgent, new_stats
 from retrievers.bm25_retriever import BM25Retriever
 from retrievers.rrf import rrf
 
@@ -25,7 +25,7 @@ N_AGENTS = int(os.environ.get("SWARM_AGENTS", "3"))
 
 SWARM_ADDON = """
 
-You are agent {i} of {n} in a team searching IN PARALLEL for the same claim.
+You are agent {i} of {n} in a team searching IN PARALLEL for the same query.
 Your teammates run at the same time and share one final score: the team's fused ranking.
 Coordination rules (important):
 - In your FIRST turn, run your searches AND call `message` with your angle (which wordings or
@@ -34,7 +34,7 @@ Coordination rules (important):
 - Messages from teammates appear at the end of your tool results. Read them before searching:
   NEVER repeat a query a teammate already ran; cover angles they have not covered, or verify
   their candidates. If a teammate already found strong candidates, you may finish early.
-- Keep messages short and concrete. Agent 1 starts with the most literal reading of the claim;
+- Keep messages short and concrete. Agent 1 starts with the most literal reading of the query;
   higher-numbered agents should favor alternative wordings and related concepts.
 - You still finish with `report_ids` (your own ranking; the team's rankings are fused)."""
 
@@ -50,8 +50,8 @@ MESSAGE_TOOL = {
 
 INDEPENDENT_ADDON = """
 
-You are agent {i} of {n} searching independently for the same claim; your ranking will be
-fused with the others. Agent 1 starts with the most literal reading of the claim;
+You are agent {i} of {n} searching independently for the same query; your ranking will be
+fused with the others. Agent 1 starts with the most literal reading of the query;
 higher-numbered agents should favor alternative wordings and related concepts."""
 
 
@@ -98,17 +98,19 @@ def _merge_stats(all_stats: list[dict], wall_time: float) -> dict:
 class _MultiAgentBase:
     coordinated = False
 
-    def __init__(self, corpus: dict[str, dict], n: int = N_AGENTS, verbose: bool = False):
+    def __init__(self, corpus: dict[str, dict], n: int = N_AGENTS, verbose: bool = False,
+                 dataset: str = "scifact"):
         bm25 = BM25Retriever(corpus)  # un solo índice compartido por todos los agentes
         self.n = n
-        self.agents = [SearchAgent(corpus, verbose=verbose, bm25=bm25) for _ in range(n)]
+        self.agents = [SearchAgent(corpus, verbose=verbose, bm25=bm25, dataset=dataset)
+                       for _ in range(n)]
         self.last_stats: dict = {}
 
     def _run_one(self, i: int, query: str, board: Board | None):
         agent = self.agents[i]
         if board is None:
             return agent.run_episode(
-                query, system=SYSTEM_PROMPT + INDEPENDENT_ADDON.format(i=i + 1, n=self.n),
+                query, system=agent.system + INDEPENDENT_ADDON.format(i=i + 1, n=self.n),
                 tag=f"[a{i + 1}] ")
 
         def handle_extra(name: str, args: dict) -> str:
@@ -119,7 +121,7 @@ class _MultiAgentBase:
 
         return agent.run_episode(
             query,
-            system=SYSTEM_PROMPT + SWARM_ADDON.format(i=i + 1, n=self.n),
+            system=agent.system + SWARM_ADDON.format(i=i + 1, n=self.n),
             extra_tools=[MESSAGE_TOOL],
             handle_extra=handle_extra,
             inbox=lambda: board.inbox(i),

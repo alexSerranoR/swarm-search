@@ -1,0 +1,123 @@
+{
+  "summary": {
+    "retriever": "swarm",
+    "dataset": "scifact",
+    "n_queries": 3,
+    "recall@10": 1.0,
+    "ndcg@10": 0.8333333333333334,
+    "mean_latency_s": 7.13041806659506,
+    "total_time_s": 21.39179309993051,
+    "mean_turns": 11.333333333333334,
+    "mean_searches": 17.333333333333332,
+    "total_input_tokens": 227018,
+    "total_output_tokens": 7011,
+    "pct_reported": 1.0,
+    "mean_messages": 1.6666666666666667
+  },
+  "per_query": [
+    {
+      "qid": "1",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 8.305286499904469,
+      "ranked": [
+        "31715818",
+        "13231899",
+        "1469751",
+        "17327939",
+        "8182950",
+        "169264",
+        "10608397",
+        "43385013",
+        "40212412",
+        "10931595"
+      ],
+      "stats": {
+        "turns": 13,
+        "searches": 24,
+        "reads": 0,
+        "messages": 2,
+        "input_tokens": 118343,
+        "output_tokens": 2946,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 8.294250600039959,
+        "agents": 3,
+        "agents_reported": 3,
+        "board": [
+          "agent 2: Agent 2: ~10 queries on 0D/zero-dimensional/quantum dot/nanoparticle/osteoinductive angles found no direct match. Weak candidates only: 31715818 (nanotech for stem cells, nanoparticles/QDs), 1469751 (lipid NP osteoblast bone anabolic), 13231899 (functionalized biomaterials directing DC/T cells). Corpus seems to lack a clear 0D-biomaterial paper; try other terms if you have them.",
+          "agent 3: Agent 3: searched '0-dimensional/zero-dimensional/0D biomaterials', 'nanoparticles osteoinductive', 'quantum dots inductive', 'calcium phosphate nanoparticles osteoinduction'. Corpus appears to have almost no direct hits. Weak candidates: 31715818 (nanotech for stem cell differentiation), 1469751 (lipid NP osteoblast bone anabolic), 13231899 (functionalized biomaterials). Not finding a true 0D inductive paper."
+        ]
+      }
+    },
+    {
+      "qid": "3",
+      "recall@10": 1.0,
+      "ndcg@10": 0.5,
+      "latency_s": 4.129593899939209,
+      "ranked": [
+        "2739854",
+        "23389795",
+        "14717500",
+        "4414547",
+        "13914198",
+        "3672261",
+        "4632921",
+        "13519661",
+        "19497526",
+        "14019636"
+      ],
+      "stats": {
+        "turns": 9,
+        "searches": 15,
+        "reads": 0,
+        "messages": 2,
+        "input_tokens": 45020,
+        "output_tokens": 1990,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 4.094264300074428,
+        "agents": 3,
+        "agents_reported": 3,
+        "board": [
+          "agent 3: Agent 3: The 1000 Genomes primary paper does not appear in the corpus after 5 queries (map of genome variation, population-scale sequencing, etc.). Best rare-vs-common candidates: 2739854 (twenty arguments), 23389795 (common and rare variants review), 14717500 (rare variants synthetic GWAS). Reporting these.",
+          "agent 2: Agent 2: No 1000 Genomes flagship paper found in corpus (searched \"1000 Genomes Project\", \"1,092 genomes\"). Best candidates on rare vs common variant effect size: 2739854 (twenty arguments), 23389795 (common & rare variants review), 14717500 (rare variants create synthetic GWAS). Reporting these."
+        ]
+      }
+    },
+    {
+      "qid": "5",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 8.956373799941503,
+      "ranked": [
+        "13734012",
+        "18617259",
+        "17333231",
+        "42240424",
+        "695938",
+        "1292369",
+        "16737163",
+        "1171121",
+        "11880289",
+        "103007"
+      ],
+      "stats": {
+        "turns": 12,
+        "searches": 13,
+        "reads": 2,
+        "messages": 1,
+        "input_tokens": 63655,
+        "output_tokens": 2075,
+        "reported": true,
+        "padded": 8,
+        "llm_time_s": 8.939524800051004,
+        "agents": 3,
+        "agents_reported": 3,
+        "board": [
+          "agent 3: Agent 3: Top hit is 13734012 (UK appendix survey, 16/32,441 abnormal PrP = 493 per million ~1 in 2000). Strong support. 18617259 is a vCJD blood transfusion case letter (weaker). Searching for the earlier appendix survey paper now."
+        ]
+      }
+    }
+  ]
+}

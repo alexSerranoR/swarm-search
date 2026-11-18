@@ -1,0 +1,199 @@
+{
+  "summary": {
+    "retriever": "agent",
+    "dataset": "fiqa",
+    "n_queries": 5,
+    "recall@10": 0.3,
+    "ndcg@10": 0.3226294385530917,
+    "mean_latency_s": 4.946830160007812,
+    "total_time_s": 24.735292900004424,
+    "mean_turns": 3.2,
+    "mean_searches": 5.0,
+    "total_input_tokens": 62328,
+    "total_output_tokens": 3011,
+    "pct_reported": 1.0,
+    "mean_messages": 0.0
+  },
+  "per_query": [
+    {
+      "qid": "4641",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 3.40096750005614,
+      "ranked": [
+        "372223",
+        "376148",
+        "253614",
+        "279759",
+        "497993",
+        "170613",
+        "260162",
+        "151394",
+        "116614",
+        "336965"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 5159,
+        "output_tokens": 403,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 2.9554581000702456,
+        "queries": [
+          "emergency fund where to keep savings account",
+          "rainy day fund high yield savings",
+          "emergency fund money market account CD liquidity"
+        ]
+      }
+    },
+    {
+      "qid": "5503",
+      "recall@10": 0.5,
+      "ndcg@10": 0.6131471927654584,
+      "latency_s": 6.455467200023122,
+      "ranked": [
+        "146277",
+        "497530",
+        "553328",
+        "598607",
+        "582922",
+        "101557",
+        "319307",
+        "565868",
+        "387218",
+        "218622"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 7,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 20619,
+        "output_tokens": 680,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 4.932995499926619,
+        "queries": [
+          "selling property below appraised value to family tax",
+          "sell house to relative below market value gift tax",
+          "bargain sale family member capital gains bargain element",
+          "sold house to my son for less than market value",
+          "house sold below market to child gift tax basis capital gains",
+          "sell property to family below fair market value IRS gift portion",
+          "discount sale to family member gift value difference taxable"
+        ]
+      }
+    },
+    {
+      "qid": "7803",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.450554899987765,
+      "ranked": [
+        "371621",
+        "338344",
+        "273598",
+        "62151",
+        "196001",
+        "16292",
+        "416286",
+        "231646",
+        "197863",
+        "41160"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 8444,
+        "output_tokens": 604,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.7936125000705943,
+        "queries": [
+          "delta option premium change underlying price",
+          "using delta to estimate option price",
+          "delta hedge option premium target",
+          "option price target stock move delta estimate premium gain",
+          "delta first derivative option value stock price"
+        ]
+      }
+    },
+    {
+      "qid": "7017",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.098754299920984,
+      "ranked": [
+        "514562",
+        "437777",
+        "36723",
+        "446629",
+        "518951",
+        "49345",
+        "350460",
+        "383399",
+        "405997",
+        "301849"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12125,
+        "output_tokens": 548,
+        "reported": true,
+        "padded": 1,
+        "llm_time_s": 3.542348400107585,
+        "queries": [
+          "algorithmic trading strategy",
+          "basic trading algorithm backtest",
+          "automated trading strategy simple rules",
+          "beginner algo trading strategy entry exit rules code",
+          "moving average crossover algorithm"
+        ]
+      }
+    },
+    {
+      "qid": "10152",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 6.32840690005105,
+      "ranked": [
+        "113585",
+        "549181",
+        "371515",
+        "37032",
+        "123263",
+        "221572",
+        "3939",
+        "165919",
+        "536174",
+        "212981"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 5,
+        "reads": 2,
+        "messages": 0,
+        "input_tokens": 15981,
+        "output_tokens": 776,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 5.235612899879925,
+        "queries": [
+          "high operating margin low ROE",
+          "operating margin return on equity leverage debt",
+          "ROE small positive operating margin high interest expense",
+          "high margin but low return on equity company interest expense taxes net income",
+          "ROE small net income large equity profitability ratio interpretation"
+        ]
+      }
+    }
+  ]
+}

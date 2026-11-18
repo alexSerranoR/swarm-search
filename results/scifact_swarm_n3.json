@@ -1,0 +1,185 @@
+{
+  "summary": {
+    "retriever": "swarm",
+    "dataset": "scifact",
+    "n_queries": 3,
+    "recall@10": 1.0,
+    "ndcg@10": 0.8333333333333334,
+    "mean_latency_s": 6.534185266626689,
+    "total_time_s": 19.60315310000442,
+    "mean_turns": 9.0,
+    "mean_searches": 14.666666666666666,
+    "total_input_tokens": 163723,
+    "total_output_tokens": 6984,
+    "pct_reported": 1.0,
+    "mean_messages": 4.333333333333333,
+    "dup_query_rate": 0.03333333333333333
+  },
+  "per_query": [
+    {
+      "qid": "1",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 9.28354680002667,
+      "ranked": [
+        "31715818",
+        "13231899",
+        "17327939",
+        "1469751",
+        "169264",
+        "10608397",
+        "43385013",
+        "40212412",
+        "10931595",
+        "27049238"
+      ],
+      "stats": {
+        "turns": 11,
+        "searches": 20,
+        "reads": 0,
+        "messages": 5,
+        "input_tokens": 87070,
+        "output_tokens": 3069,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 9.271076199947856,
+        "queries": [
+          "0-dimensional biomaterials inductive properties",
+          "zero-dimensional biomaterials",
+          "0D nanomaterials inductive",
+          "osteoinductive biomaterial",
+          "dimensionality of biomaterials nanoparticles 0D 1D 2D 3D",
+          "0-dimensional biomaterials inductive properties",
+          "zero-dimensional nanomaterials osteoinductive",
+          "nanoparticles induce osteogenic differentiation",
+          "quantum dots biomaterial bioactivity",
+          "0D nanostructure scaffold tissue regeneration",
+          "biomaterial dimensionality classification 0D 1D 2D 3D",
+          "nanoparticles osteoinductive bone regeneration",
+          "zero-dimensional biomaterials inductive",
+          "0D nanomaterials osteoinductive",
+          "zero-dimensional nanoparticles induce differentiation",
+          "biomaterial dimensionality 0D 1D 2D 3D bioactivity",
+          "nanodots bone regeneration inductive",
+          "dimensional classification biomaterials nanoparticles inductive properties review",
+          "osteoinductive nanomaterials",
+          "nanoparticles intrinsic osteogenic inductive activity without growth factors"
+        ],
+        "agents": 3,
+        "agents_reported": 3,
+        "dup_query_rate": 0.1,
+        "board": [
+          "agent 2: Agent 2: I'm covering alternative wordings: \"zero-dimensional\"/\"0D\" nanoparticles, quantum dots, nanospheres with inductive/osteoinductive/regenerative effects. Agent 1 keep literal \"0-dimensional biomaterials inductive\".",
+          "agent 3: Agent 3: I'll cover alternative wordings: \"zero-dimensional\", \"0D nanomaterials\", \"quantum dots/nanoparticles osteoinductive\", \"inductive bioactivity\". Agents 1/2 take literal \"0-dimensional biomaterials inductive\".",
+          "agent 1: Agent 1: I'm covering the literal wording: \"0-dimensional biomaterials\", \"zero-dimensional\", \"quantum dots/nanoparticles inductive\". Agents 2/3: please take \"osteoinductive/inductive nanomaterials\" and \"0D nanostructure bioactivity/differentiation\" angles.",
+          "agent 1: Agent 1: ran \"0-dimensional biomaterials inductive\", \"zero-dimensional biomaterials\", \"0D nanomaterials inductive\", \"osteoinductive biomaterial\", \"dimensionality 0D 1D 2D 3D nanoparticles\". Nothing on-topic in corpus; only weak hits (31715818 nanotech/quantum dots for stem cells). Corpus looks off-topic for this claim.",
+          "agent 3: Agent 3: After ~8 queries (0D/zero-dimensional, osteoinductive nanomaterials, dimensionality 0D-3D, nanodots bone inductive) I found no clear 0D-biomaterial inductive paper. Weak candidates only: 31715818 (nanotech for stem cell differentiation), 1469751 (lipid nanoparticles, osteoblast anabolic). Reporting low-confidence list now."
+        ]
+      }
+    },
+    {
+      "qid": "3",
+      "recall@10": 1.0,
+      "ndcg@10": 0.5,
+      "latency_s": 4.666357299895026,
+      "ranked": [
+        "2739854",
+        "23389795",
+        "14717500",
+        "13914198",
+        "2107238",
+        "20280410",
+        "4414547",
+        "3672261",
+        "4632921",
+        "13519661"
+      ],
+      "stats": {
+        "turns": 9,
+        "searches": 15,
+        "reads": 0,
+        "messages": 4,
+        "input_tokens": 46901,
+        "output_tokens": 2284,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 4.637338700005785,
+        "queries": [
+          "1000 Genomes Project rare variants",
+          "1000 Genomes sequence variation penetrance",
+          "rare variants larger effect sizes than common variants",
+          "1000 Genomes Project catalog of human genetic variation low-frequency variants",
+          "rare variants large penetrance common disease susceptibility sequencing",
+          "1000 Genomes rare variants larger effect sizes than common variants",
+          "rare variants penetrance 1000 Genomes Project sequence variation",
+          "low-frequency variants imputation reference panel 1000 Genomes",
+          "1000 Genomes Project catalog of human genetic variation",
+          "rare variants larger effects disease susceptibility sequencing",
+          "1000 Genomes Project rare variants larger effect sizes than common variants",
+          "rare variants penetrance low-frequency variants sequencing reference panel",
+          "population sequencing catalog of human genetic variation rare variants",
+          "1000 Genomes Project integrated map of genetic variation",
+          "deep sequencing human genomes catalogue variants low frequency penetrance"
+        ],
+        "agents": 3,
+        "agents_reported": 3,
+        "dup_query_rate": 0.0,
+        "board": [
+          "agent 2: Agent 2: I'll cover alternative wordings: \"1000 Genomes\" + \"rare variants\" + \"penetrance\"/\"effect size\", \"low-frequency variants\", \"imputation reference panel\". Agent 1 take the literal claim wording.",
+          "agent 1: Agent 1: I'm covering the literal wording: \"1000 genomes project\" + rare variants / penetrance / sequence variation mapping. Teammates please take alternative angles (e.g., rare variant effect size vs common variants, association/GWAS power, imputation/reference panel).",
+          "agent 3: Agent 3: I'll cover alternative wordings: \"rare variants\" + \"penetrance\"/\"effect size\", \"low-frequency variants\", \"imputation reference panel\", \"population sequencing variation catalog\". Agent 1 has literal reading; agent 2 unknown.",
+          "agent 2: Agent 2: The 1000 Genomes paper itself doesn't seem to be in the corpus (searches for \"1000 Genomes catalog\" return nothing relevant). Best rare-vs-common candidates: 2739854 (Rare and common variants: twenty arguments), 23389795 (Common and rare variants in multifactorial susceptibility), 14717500 (Rare Variants Create Synthetic GWAS). Reporting these."
+        ]
+      }
+    },
+    {
+      "qid": "5",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 5.652651699958369,
+      "ranked": [
+        "13734012",
+        "18617259",
+        "17333231",
+        "42240424",
+        "695938",
+        "1292369",
+        "16737163",
+        "1171121",
+        "11880289",
+        "103007"
+      ],
+      "stats": {
+        "turns": 7,
+        "searches": 9,
+        "reads": 0,
+        "messages": 4,
+        "input_tokens": 29752,
+        "output_tokens": 1631,
+        "reported": true,
+        "padded": 9,
+        "llm_time_s": 5.6382926000515,
+        "queries": [
+          "abnormal PrP positivity UK prevalence 1 in 2000",
+          "abnormal prion protein appendix tonsil UK population prevalence",
+          "prevalence of abnormal PrP in UK population",
+          "vCJD carriers appendix tissue prion protein UK",
+          "prion infection prevalence United Kingdom lymphoid tissue",
+          "prevalence abnormal prion protein UK population appendix",
+          "PrP positivity tonsil appendix surveys UK 1 in 2000",
+          "variant CJD prion infection carriers United Kingdom prevalence estimate",
+          "appendix samples abnormal PrP prevalence per million population"
+        ],
+        "agents": 3,
+        "agents_reported": 3,
+        "dup_query_rate": 0.0,
+        "board": [
+          "agent 1: Agent 1: I'm covering literal wording: \"PrP positivity UK 1 in 2000 prevalence\", \"abnormal PrP tonsil appendix UK prevalence\". Agents 2/3 please take alternatives: prion infection rate / vCJD carriers / seroprevalence wording.",
+          "agent 3: Agent 3: I'll cover alternative wordings: \"prion protein\" PrP abnormal prevalence UK, \"appendix/tonsil PrP\" surveys, \"variant CJD carriers 1 in 2000\", \"prevalence of PrP-positive tissue\", \"Creutzfeldt-Jakob UK population screening\". Agents 1-2 take the literal \"1 in 2000\" / \"abnormal PrP\" phrasing.",
+          "agent 2: Agent 2 here. I'll cover alternative wordings: \"prion protein\" / PrP prevalence, appendix surgery / tonsil / archived tissue prevalence studies, \"variant CJD carriers\" incidence in UK. Agent 1 keep literal \"1 in 2000 abnormal PrP UK\".",
+          "agent 2: Agent 2: Strong hit: [13734012] UK appendix survey, 16 positive of 32,441 archived appendixes (~1 in 2000). Reporting it as top."
+        ]
+      }
+    }
+  ]
+}

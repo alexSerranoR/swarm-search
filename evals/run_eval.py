@@ -8,6 +8,7 @@ Uso:
     python evals/run_eval.py --retriever agent --limit 50
     python evals/run_eval.py --retriever rrf_n --limit 30     # fase 4: N agentes independientes + RRF
     python evals/run_eval.py --retriever swarm --limit 30     # fase 4: N agentes que se hablan + RRF
+    python evals/run_eval.py --dataset fiqa --retriever swarm --agents 6 --limit 100
 """
 import argparse
 import json
@@ -24,7 +25,8 @@ from evals.metrics import ndcg_at_k, recall_at_k  # noqa: E402
 K = 10
 
 
-def build_retriever(name: str, corpus, verbose: bool = False):
+def build_retriever(name: str, corpus, verbose: bool = False, dataset: str = "scifact",
+                    agents: int = 3):
     if name == "random":
         from retrievers.random_retriever import RandomRetriever
         return RandomRetriever(corpus)
@@ -33,13 +35,13 @@ def build_retriever(name: str, corpus, verbose: bool = False):
         return BM25Retriever(corpus)
     if name == "agent":
         from agents.search_agent import SearchAgent
-        return SearchAgent(corpus, verbose=verbose)
+        return SearchAgent(corpus, verbose=verbose, dataset=dataset)
     if name == "rrf_n":
         from agents.swarm import RRFEnsemble
-        return RRFEnsemble(corpus, verbose=verbose)
+        return RRFEnsemble(corpus, n=agents, verbose=verbose, dataset=dataset)
     if name == "swarm":
         from agents.swarm import Swarm
-        return Swarm(corpus, verbose=verbose)
+        return Swarm(corpus, n=agents, verbose=verbose, dataset=dataset)
     raise ValueError(f"Retriever desconocido: {name}")
 
 
@@ -49,11 +51,12 @@ def main() -> None:
     parser.add_argument("--dataset", default="scifact")
     parser.add_argument("--limit", type=int, default=None, help="evaluar solo N queries")
     parser.add_argument("--verbose", action="store_true", help="mostrar las tool calls del agente")
+    parser.add_argument("--agents", type=int, default=3, help="nº de agentes para rrf_n y swarm")
     args = parser.parse_args()
 
     corpus, queries, qrels = load_dataset(args.dataset)
     print(f"Construyendo '{args.retriever}' sobre {len(corpus)} documentos...")
-    retriever = build_retriever(args.retriever, corpus, args.verbose)
+    retriever = build_retriever(args.retriever, corpus, args.verbose, args.dataset, args.agents)
 
     qids = list(queries)[: args.limit] if args.limit else list(queries)
     per_query = []
@@ -101,8 +104,11 @@ def main() -> None:
         if any("dup_query_rate" in s for s in with_stats):
             summary["dup_query_rate"] = sum(s.get("dup_query_rate", 0) for s in with_stats) / n
 
+    name = args.retriever
+    if args.retriever in ("rrf_n", "swarm") and args.agents != 3:
+        name += f"{args.agents}"
     suffix = f"_n{args.limit}" if args.limit else ""
-    out = ROOT / "results" / f"{args.dataset}_{args.retriever}{suffix}.json"
+    out = ROOT / "results" / f"{args.dataset}_{name}{suffix}.json"
     out.write_text(json.dumps({"summary": summary, "per_query": per_query}, indent=2))
 
     print(f"\n{args.retriever} en {args.dataset} ({n} queries)")

@@ -25,20 +25,46 @@ MAX_TURNS = 8          # SID-2 usa un límite de turnos parecido; si lo agota, c
 SEARCH_LIMIT = 10      # resultados por búsqueda
 SNIPPET_WORDS = 60     # tamaño de cada snippet
 
-SYSTEM_PROMPT = """You are a retrieval agent searching a corpus of scientific paper abstracts.
-Given a claim or question, your job is to find the documents that support or refute it.
+# Cada dataset tiene su descripción del corpus, su tarea y su criterio de relevancia.
+PROFILES = {
+    "scifact": {
+        "prefix": "Claim",
+        "corpus": "a corpus of scientific paper abstracts",
+        "task": "Given a claim, your job is to find the documents that support or refute it.",
+        "relevance": """- A document is relevant if it provides evidence about the claim, whether it SUPPORTS or
+  REFUTES it. Claims are often paraphrased, simplified or even wrong: the relevant paper
+  may use different wording or numbers. Do not demand an exact match.
+- Most claims have only 1-2 relevant documents. Precision at the top of your ranking matters most.""",
+    },
+    "fiqa": {
+        "prefix": "Question",
+        "corpus": "a corpus of answers from a personal finance and investing Q&A forum",
+        "task": "Given a financial question, your job is to find the forum answers that best answer it.",
+        "relevance": """- An answer is relevant if it directly addresses the question asked (not just the same topic).
+- Questions and answers often use DIFFERENT vocabulary (e.g. question says "401k match",
+  answer says "employer contribution"). Rephrase with the words an answerer would use.
+- Questions usually have 1-4 relevant answers. Precision at the top of your ranking matters most.""",
+    },
+}
+
+SYSTEM_TEMPLATE = """You are a retrieval agent searching {corpus}.
+{task}
 
 How to work:
 - Use `search` with short keyword queries (BM25: exact words matter). Try synonyms,
   technical terms, and different angles. You may call `search` several times in one turn.
 - Results show a snippet of each document. Use `read_doc` only if a snippet is ambiguous.
-- A document is relevant if it provides evidence about the claim, whether it SUPPORTS or
-  REFUTES it. Claims are often paraphrased, simplified or even wrong: the relevant paper
-  may use different wording or numbers. Do not demand an exact match.
-- Most claims have only 1-2 relevant documents. Precision at the top of your ranking matters most.
+{relevance}
 - When done, call `report_ids` ONCE with up to 10 document IDs, most relevant first.
   NEVER report an empty list: if unsure, report your best candidates anyway, ranked by likelihood.
   Be efficient: stop as soon as you are confident."""
+
+
+def system_prompt(dataset: str) -> str:
+    return SYSTEM_TEMPLATE.format(**PROFILES[dataset])
+
+
+SYSTEM_PROMPT = system_prompt("scifact")  # compatibilidad
 
 TOOLS = [
     {
@@ -79,12 +105,15 @@ def new_stats() -> dict:
 
 class SearchAgent:
     def __init__(self, corpus: dict[str, dict], model: str = MODEL, verbose: bool = False,
-                 bm25: BM25Retriever | None = None):
+                 bm25: BM25Retriever | None = None, dataset: str = "scifact"):
         self.bm25 = bm25 or BM25Retriever(corpus)
         self.corpus = corpus
         self.model = model
         self.verbose = verbose
         self.client = anthropic.Anthropic()  # lee ANTHROPIC_API_KEY del entorno
+        self.dataset = dataset
+        self.system = system_prompt(dataset)
+        self.prefix = PROFILES[dataset]["prefix"]
         self.last_stats: dict = {}
 
     # ---------------- herramientas ----------------
@@ -111,7 +140,7 @@ class SearchAgent:
     def run_episode(
         self,
         query: str,
-        system: str = SYSTEM_PROMPT,
+        system: str | None = None,
         extra_tools: list[dict] | None = None,
         handle_extra: Callable[[str, dict], str] | None = None,
         inbox: Callable[[], str] | None = None,
@@ -123,8 +152,9 @@ class SearchAgent:
         inbox: función que devuelve mensajes nuevos de otros agentes; se añaden al
                siguiente resultado de herramienta, igual que en SID-2.
         """
+        system = system or self.system
         tools = TOOLS + (extra_tools or [])
-        messages = [{"role": "user", "content": f"Claim: {query}"}]
+        messages = [{"role": "user", "content": f"{self.prefix}: {query}"}]
         seen: set[str] = set()
         stats = new_stats()
         reported: list[str] = []

@@ -1,0 +1,3604 @@
+{
+  "summary": {
+    "retriever": "agent",
+    "dataset": "fiqa",
+    "n_queries": 100,
+    "recall@10": 0.392234126984127,
+    "ndcg@10": 0.33057342570608805,
+    "mean_latency_s": 4.58181547199958,
+    "total_time_s": 458.1861915999325,
+    "mean_turns": 3.21,
+    "mean_searches": 4.85,
+    "total_input_tokens": 1318204,
+    "total_output_tokens": 54027,
+    "pct_reported": 1.0,
+    "mean_messages": 0.0
+  },
+  "per_query": [
+    {
+      "qid": "4641",
+      "recall@10": 0.2,
+      "ndcg@10": 0.09803928583135704,
+      "latency_s": 3.9322954999515787,
+      "ranked": [
+        "376148",
+        "372223",
+        "257754",
+        "253614",
+        "70730",
+        "343693",
+        "416633",
+        "568298",
+        "527939",
+        "44594"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10353,
+        "output_tokens": 393,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.443998200003989,
+        "queries": [
+          "emergency fund where to park",
+          "rainy day fund savings account",
+          "emergency fund high yield savings account",
+          "emergency fund money market account CD liquid safe"
+        ]
+      }
+    },
+    {
+      "qid": "5503",
+      "recall@10": 0.5,
+      "ndcg@10": 0.6131471927654584,
+      "latency_s": 5.856856800033711,
+      "ranked": [
+        "146277",
+        "598607",
+        "553328",
+        "101557",
+        "582922",
+        "154266",
+        "485398",
+        "93386",
+        "219421",
+        "372834"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 6,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12844,
+        "output_tokens": 745,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 4.671766699990258,
+        "queries": [
+          "selling property below appraised value to family tax",
+          "sell house to relative below market value gift tax",
+          "bargain sale family member capital gains bargain element",
+          "sold house to my son for less than market value gift tax form 709",
+          "sale to family member below fair market value part gift part sale",
+          "discounted sale to relative IRS fair market value gift"
+        ]
+      }
+    },
+    {
+      "qid": "7803",
+      "recall@10": 0.5,
+      "ndcg@10": 0.3065735963827292,
+      "latency_s": 4.132085199933499,
+      "ranked": [
+        "273598",
+        "371621",
+        "157504",
+        "16292",
+        "62151",
+        "338344",
+        "196001",
+        "41160",
+        "197863",
+        "202432"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 8072,
+        "output_tokens": 471,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 3.4124744997825474,
+        "queries": [
+          "delta option premium change",
+          "option delta estimate price move",
+          "delta hedge ratio option premium",
+          "target price option value using delta and gamma"
+        ]
+      }
+    },
+    {
+      "qid": "7017",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.361339499941096,
+      "ranked": [
+        "514562",
+        "36723",
+        "81655",
+        "446629",
+        "579039",
+        "49345",
+        "179068",
+        "383399",
+        "350460",
+        "565501"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11926,
+        "output_tokens": 628,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.9240851999493316,
+        "queries": [
+          "algorithmic trading strategy",
+          "basic trading algorithm backtest",
+          "automated trading strategy beginner",
+          "simple moving average crossover algorithm strategy",
+          "coding trading strategy python beginner"
+        ]
+      }
+    },
+    {
+      "qid": "10152",
+      "recall@10": 1.0,
+      "ndcg@10": 0.5,
+      "latency_s": 3.1431546000530943,
+      "ranked": [
+        "549181",
+        "371515",
+        "113585",
+        "221572",
+        "3939",
+        "165919",
+        "536174",
+        "212981",
+        "516797",
+        "258306"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4949,
+        "output_tokens": 378,
+        "reported": true,
+        "padded": 7,
+        "llm_time_s": 2.5082732998998836,
+        "queries": [
+          "high operating margin low ROE",
+          "operating margin return on equity leverage",
+          "small positive ROE high margin debt"
+        ]
+      }
+    },
+    {
+      "qid": "3451",
+      "recall@10": 0.14285714285714285,
+      "ndcg@10": 0.27487633291429087,
+      "latency_s": 7.053657300071791,
+      "ranked": [
+        "165970",
+        "257241",
+        "289801",
+        "114981",
+        "310683",
+        "315012",
+        "69487",
+        "251735",
+        "251536",
+        "71350"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12107,
+        "output_tokens": 470,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 5.879436800023541,
+        "queries": [
+          "should I keep stocks or sell after market drop",
+          "missed the chance to sell stocks, hold or sell now",
+          "too late to sell, keep holding stocks",
+          "market crashed already, should I sell now or hold long term",
+          "selling after a crash locks in losses, staying invested"
+        ]
+      }
+    },
+    {
+      "qid": "4804",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 5.8518946000840515,
+      "ranked": [
+        "583651",
+        "104395",
+        "372320",
+        "78259",
+        "137984",
+        "76640",
+        "418888",
+        "483485",
+        "463599",
+        "401677"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 7,
+        "reads": 1,
+        "messages": 0,
+        "input_tokens": 23299,
+        "output_tokens": 707,
+        "reported": true,
+        "padded": 7,
+        "llm_time_s": 4.815553699969314,
+        "queries": [
+          "women-only financial services",
+          "financial products for women differ",
+          "women investing firm female advisors",
+          "women investors gender gap investing advice",
+          "Ellevest women's investing platform",
+          "marketing investing to women segmentation market",
+          "women-focused investment club or women's financial planning"
+        ]
+      }
+    },
+    {
+      "qid": "7911",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 3.2761587999993935,
+      "ranked": [
+        "57711",
+        "131996",
+        "406872",
+        "143066",
+        "582736",
+        "546115",
+        "36723",
+        "271568",
+        "278460",
+        "94690"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 3,
+        "reads": 2,
+        "messages": 0,
+        "input_tokens": 9274,
+        "output_tokens": 323,
+        "reported": true,
+        "padded": 7,
+        "llm_time_s": 2.8115909000625834,
+        "queries": [
+          "difference between trader and stockbroker",
+          "stockbroker versus trader",
+          "broker dealer licensed trader definition"
+        ]
+      }
+    },
+    {
+      "qid": "10809",
+      "recall@10": 0.3333333333333333,
+      "ndcg@10": 0.2960819109658652,
+      "latency_s": 3.81888700008858,
+      "ranked": [
+        "543811",
+        "286141",
+        "536043",
+        "511587",
+        "62955",
+        "469125",
+        "482077",
+        "314410",
+        "25550",
+        "93890"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11065,
+        "output_tokens": 468,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 3.165014199912548,
+        "queries": [
+          "definition of leverage",
+          "leverage factor definition",
+          "leveraged ETF leverage factor meaning",
+          "leverage is expressed as a ratio, leverage factor",
+          "what does leverage mean in investing"
+        ]
+      }
+    },
+    {
+      "qid": "6715",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 2.6136101000010967,
+      "ranked": [
+        "568526",
+        "13732",
+        "476829",
+        "131421",
+        "313695",
+        "533357",
+        "593760",
+        "268241",
+        "117415",
+        "212470"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 2,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4187,
+        "output_tokens": 276,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 2.0673511000350118,
+        "queries": [
+          "IPO underwriting discount built-in commission",
+          "underwriting discount IPO spread underwriters"
+        ]
+      }
+    },
+    {
+      "qid": "2388",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.562785399961285,
+      "ranked": [
+        "316149",
+        "360264",
+        "456783",
+        "53945",
+        "320953",
+        "120283",
+        "86855",
+        "304081",
+        "300287",
+        "71816"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11493,
+        "output_tokens": 536,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 3.774704499868676,
+        "queries": [
+          "financial advisor mortgage rates better deal",
+          "mortgage broker vs financial advisor discount",
+          "advisor get preferential mortgage rate",
+          "mortgage broker access to better rates than banks",
+          "do brokers get lower mortgage rates"
+        ]
+      }
+    },
+    {
+      "qid": "753",
+      "recall@10": 0.5,
+      "ndcg@10": 0.6131471927654584,
+      "latency_s": 5.928124099969864,
+      "ranked": [
+        "466718",
+        "451020",
+        "95441",
+        "313361",
+        "283505",
+        "418630",
+        "79511",
+        "370857",
+        "122185",
+        "51729"
+      ],
+      "stats": {
+        "turns": 6,
+        "searches": 5,
+        "reads": 2,
+        "messages": 0,
+        "input_tokens": 30471,
+        "output_tokens": 596,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 5.298679499770515,
+        "queries": [
+          "hobbyist group buy taxes",
+          "group buy income tax hobby",
+          "group buy profit taxable self-employed",
+          "group buy",
+          "group buy organizer hobby income tax report 1040"
+        ]
+      }
+    },
+    {
+      "qid": "4465",
+      "recall@10": 0.3333333333333333,
+      "ndcg@10": 0.23463936301137822,
+      "latency_s": 4.988578599994071,
+      "ranked": [
+        "8060",
+        "106786",
+        "299242",
+        "77818",
+        "90591",
+        "445099",
+        "326167",
+        "264271",
+        "174033",
+        "266342"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 7,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 17085,
+        "output_tokens": 576,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 4.10465150012169,
+        "queries": [
+          "donate to charity make a difference",
+          "effective charity donation",
+          "charity evaluator GiveWell impact",
+          "cost-effective charities where to give",
+          "donor advised fund giving strategy",
+          "charity programs proven impact research",
+          "charity rating Charity Navigator overhead"
+        ]
+      }
+    },
+    {
+      "qid": "7326",
+      "recall@10": 1.0,
+      "ndcg@10": 0.31546487678572877,
+      "latency_s": 5.310346800019033,
+      "ranked": [
+        "35340",
+        "123958",
+        "294718",
+        "404339",
+        "234983",
+        "294424",
+        "359190",
+        "584295",
+        "87535",
+        "499536"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 5,
+        "reads": 2,
+        "messages": 0,
+        "input_tokens": 17614,
+        "output_tokens": 574,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 4.393475399818271,
+        "queries": [
+          "broker execute trades on exchange",
+          "broker internalize orders off-exchange market maker",
+          "does my broker send trades to the exchange",
+          "payment for order flow broker routes orders to market maker",
+          "broker acts as principal counterparty not exchange"
+        ]
+      }
+    },
+    {
+      "qid": "5951",
+      "recall@10": 0.2222222222222222,
+      "ndcg@10": 0.33627415762678553,
+      "latency_s": 4.002063899999484,
+      "ranked": [
+        "259777",
+        "599860",
+        "54945",
+        "418034",
+        "171479",
+        "196405",
+        "589470",
+        "27444",
+        "556367",
+        "285525"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10678,
+        "output_tokens": 415,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 3.167993300012313,
+        "queries": [
+          "house prices out of tune with salaries",
+          "house price to income ratio can't diverge",
+          "house prices salaries long-term relationship affordability",
+          "house prices rise faster than salaries indefinitely implausible"
+        ]
+      }
+    },
+    {
+      "qid": "5653",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 4.397287299972959,
+      "ranked": [
+        "588247",
+        "92201",
+        "169074",
+        "33155",
+        "530114",
+        "282947",
+        "118270",
+        "161230",
+        "333623",
+        "106327"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 6,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 19916,
+        "output_tokens": 436,
+        "reported": true,
+        "padded": 9,
+        "llm_time_s": 3.5615491000935435,
+        "queries": [
+          "SEIS investment steps timing",
+          "Seed Enterprise Investment Scheme invest",
+          "SEIS shares before tax year income tax relief",
+          "SEIS certificate issued HMRC advance assurance",
+          "SEIS EIS tax year 5th April relief claim",
+          "SEIS"
+        ]
+      }
+    },
+    {
+      "qid": "10827",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 2.9265628000721335,
+      "ranked": [
+        "392371",
+        "576391",
+        "140330",
+        "164628",
+        "555377",
+        "436071",
+        "296405",
+        "538238",
+        "436930",
+        "497561"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4955,
+        "output_tokens": 331,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 2.231939999968745,
+        "queries": [
+          "401k employer match how much should I contribute",
+          "401k employer contribution percentage salary",
+          "contribute enough to get full employer match 401k"
+        ]
+      }
+    },
+    {
+      "qid": "9771",
+      "recall@10": 0.5,
+      "ndcg@10": 0.21840743681816419,
+      "latency_s": 4.881425500032492,
+      "ranked": [
+        "71924",
+        "62706",
+        "178105",
+        "106740",
+        "127401",
+        "263955",
+        "370632",
+        "280626",
+        "41780",
+        "132193"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12122,
+        "output_tokens": 629,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 4.039147899951786,
+        "queries": [
+          "adding to a losing position empirical research",
+          "averaging down losing stock study",
+          "disposition effect research losers",
+          "study shows investors who average down underperform",
+          "pyramiding into winners versus averaging into losers research"
+        ]
+      }
+    },
+    {
+      "qid": "7105",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 3.470382299972698,
+      "ranked": [
+        "72652",
+        "394702",
+        "496096",
+        "198465",
+        "401952",
+        "307380",
+        "384371",
+        "381104",
+        "557249",
+        "549181"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 3,
+        "reads": 2,
+        "messages": 0,
+        "input_tokens": 9482,
+        "output_tokens": 416,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 2.9337137998081744,
+        "queries": [
+          "equity duration",
+          "fixed income duration bond price sensitivity interest rates",
+          "duration of stocks versus bonds"
+        ]
+      }
+    },
+    {
+      "qid": "9332",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 7.1270102999405935,
+      "ranked": [
+        "178521",
+        "293687",
+        "159577",
+        "535187",
+        "184042",
+        "58875",
+        "328703",
+        "157729",
+        "173088",
+        "238360"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 6,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 16837,
+        "output_tokens": 962,
+        "reported": true,
+        "padded": 1,
+        "llm_time_s": 5.995642200228758,
+        "queries": [
+          "physical stock certificate demutualized company",
+          "old stock certificate mutual company converted shares",
+          "stock certificate worthless mutual insurance company demutualization",
+          "demutualization shares certificate what to do",
+          "converted to mutual stock certificate still valid",
+          "old certificate company acquired by mutual cash out shares transfer agent"
+        ]
+      }
+    },
+    {
+      "qid": "3724",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.274916199967265,
+      "ranked": [
+        "480036",
+        "430931",
+        "555377",
+        "488673",
+        "340624",
+        "122560",
+        "392252",
+        "122910",
+        "135790",
+        "198825"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11197,
+        "output_tokens": 511,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.5637640000786632,
+        "queries": [
+          "max out 401k contributions",
+          "should I max out my 401k",
+          "401k employer match vs maxing contribution limit",
+          "not necessarily max out 401k depends on situation emergency fund debt",
+          "downsides maxing 401k liquidity penalty early withdrawal"
+        ]
+      }
+    },
+    {
+      "qid": "5853",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 3.8103888999903575,
+      "ranked": [
+        "387722",
+        "341837",
+        "406325",
+        "402950",
+        "473865",
+        "25466",
+        "109903",
+        "468905",
+        "386994",
+        "493336"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11141,
+        "output_tokens": 451,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.154701800085604,
+        "queries": [
+          "pay off mortgage principal vs invest in mutual fund",
+          "extra mortgage payments versus investing",
+          "prepay home loan or invest mutual funds returns",
+          "mortgage rate after-tax return invest instead of paying down mortgage"
+        ]
+      }
+    },
+    {
+      "qid": "6832",
+      "recall@10": 0.5,
+      "ndcg@10": 0.2640681225725909,
+      "latency_s": 5.7717425000155345,
+      "ranked": [
+        "229546",
+        "171242",
+        "45519",
+        "573874",
+        "214944",
+        "400230",
+        "518079",
+        "471782",
+        "420587",
+        "552346"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 6,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 16576,
+        "output_tokens": 637,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 4.729461200069636,
+        "queries": [
+          "incorrect information printed on checks",
+          "check printing error wrong address on checks",
+          "checks misprinted bank account number routing",
+          "typo on new checks ordered reprint bank error",
+          "checks arrived with wrong name misspelled, who pays for reorder",
+          "check order printed wrong, company error, bank will honor checks with errors"
+        ]
+      }
+    },
+    {
+      "qid": "6807",
+      "recall@10": 1.0,
+      "ndcg@10": 0.2890648263178879,
+      "latency_s": 3.8570611000759527,
+      "ranked": [
+        "143302",
+        "354857",
+        "531066",
+        "517637",
+        "375929",
+        "8003",
+        "154927",
+        "204761",
+        "194363",
+        "332567"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10376,
+        "output_tokens": 416,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 3.0403159998822957,
+        "queries": [
+          "calculate annual return stock including dividends",
+          "total return dividends reinvested annual return formula",
+          "dividend yield added to price return stock performance",
+          "total return formula dividends received over year divided by starting price"
+        ]
+      }
+    },
+    {
+      "qid": "570",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.290274200029671,
+      "ranked": [
+        "52438",
+        "346387",
+        "220459",
+        "289064",
+        "242529",
+        "17166",
+        "168561",
+        "79375",
+        "15841",
+        "117845"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10931,
+        "output_tokens": 502,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 3.4073506999993697,
+        "queries": [
+          "employer setting up 401k plan for employees",
+          "small business 401k options employer",
+          "solo 401k SIMPLE IRA employer plan comparison",
+          "safe harbor match profit sharing employer 401k plan design",
+          "company sponsor 401k administration fees small employer no match"
+        ]
+      }
+    },
+    {
+      "qid": "7279",
+      "recall@10": 0.5,
+      "ndcg@10": 0.3071837157818931,
+      "latency_s": 2.965443199966103,
+      "ranked": [
+        "213373",
+        "66119",
+        "328699",
+        "81483",
+        "179073",
+        "476834",
+        "334495",
+        "14781",
+        "152695",
+        "466950"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4804,
+        "output_tokens": 403,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 2.5680274000624195,
+        "queries": [
+          "hedge currency risk foreign securities",
+          "should I hedge foreign currency exposure investing",
+          "currency hedged ETF foreign stocks exchange rate risk"
+        ]
+      }
+    },
+    {
+      "qid": "594",
+      "recall@10": 0.5,
+      "ndcg@10": 0.6131471927654584,
+      "latency_s": 3.5397975998930633,
+      "ranked": [
+        "377322",
+        "341148",
+        "349181",
+        "580085",
+        "171964",
+        "125981",
+        "86281",
+        "314898",
+        "548596",
+        "191677"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 9773,
+        "output_tokens": 371,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 2.943081999896094,
+        "queries": [
+          "retail investor reading SEC filings",
+          "10-K 10-Q filings worth reading",
+          "SEC filings EDGAR individual investor",
+          "is it necessary to read 10-K annual report as a small investor"
+        ]
+      }
+    },
+    {
+      "qid": "10122",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 2.740488399984315,
+      "ranked": [
+        "296567",
+        "110078",
+        "134542",
+        "186575",
+        "180855",
+        "279288",
+        "208898",
+        "144261",
+        "122222",
+        "286227"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 5459,
+        "output_tokens": 323,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 2.407160099945031,
+        "queries": [
+          "why diversify investments",
+          "diversification reduces risk",
+          "diversify stocks don't put all eggs in one basket"
+        ]
+      }
+    },
+    {
+      "qid": "3091",
+      "recall@10": 1.0,
+      "ndcg@10": 0.9950883841893561,
+      "latency_s": 2.528229200048372,
+      "ranked": [
+        "366448",
+        "187739",
+        "274870",
+        "108302",
+        "534099",
+        "95778",
+        "101103",
+        "159936",
+        "559370",
+        "278801"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4859,
+        "output_tokens": 281,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 2.025391299976036,
+        "queries": [
+          "mortgage considered debt",
+          "is a mortgage debt",
+          "home loan counts as debt net worth"
+        ]
+      }
+    },
+    {
+      "qid": "904",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 4.759604200022295,
+      "ranked": [
+        "415514",
+        "203446",
+        "357938",
+        "460325",
+        "577735",
+        "333616",
+        "175692",
+        "85229",
+        "574941",
+        "558088"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 5,
+        "reads": 1,
+        "messages": 0,
+        "input_tokens": 18232,
+        "output_tokens": 499,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 3.7783672001678497,
+        "queries": [
+          "QuickBooks rental property LLC setup",
+          "QuickBooks multiple LLCs separate company files",
+          "landlord bookkeeping QuickBooks properties class tracking",
+          "one company file per LLC QuickBooks property",
+          "property management company QuickBooks separate books each property"
+        ]
+      }
+    },
+    {
+      "qid": "4037",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 5.260105099994689,
+      "ranked": [
+        "244555",
+        "475058",
+        "355415",
+        "453035",
+        "273071",
+        "557186",
+        "347137",
+        "562777",
+        "123384",
+        "202224"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 5,
+        "reads": 1,
+        "messages": 0,
+        "input_tokens": 16977,
+        "output_tokens": 559,
+        "reported": true,
+        "padded": 6,
+        "llm_time_s": 4.3550585000775754,
+        "queries": [
+          "GnuCash separate individual expenses family expenses",
+          "GnuCash split transaction personal expenses shared account",
+          "GnuCash multiple users family budget accounts",
+          "gnucash track spending for each family member separately account hierarchy",
+          "gnucash expense report by person spouse kids categories"
+        ]
+      }
+    },
+    {
+      "qid": "8537",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 3.7186772000277415,
+      "ranked": [
+        "596567",
+        "547460",
+        "511093",
+        "100628",
+        "138201",
+        "564353",
+        "562964",
+        "376136",
+        "72024",
+        "236507"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 9841,
+        "output_tokens": 390,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 3.092506399960257,
+        "queries": [
+          "options account",
+          "what is an options account brokerage approval level",
+          "options trading account application levels",
+          "options approval trading level brokerage cash-secured puts covered calls account"
+        ]
+      }
+    },
+    {
+      "qid": "3357",
+      "recall@10": 1.0,
+      "ndcg@10": 0.6309297535714575,
+      "latency_s": 5.05563310009893,
+      "ranked": [
+        "424818",
+        "209974",
+        "406656",
+        "418647",
+        "532932",
+        "37725",
+        "374145",
+        "155648",
+        "468741",
+        "524788"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 5,
+        "reads": 2,
+        "messages": 0,
+        "input_tokens": 20726,
+        "output_tokens": 547,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 4.031282000010833,
+        "queries": [
+          "contractor incorporated before clients give work",
+          "big clients require LLC or corporation for contractor liability",
+          "freelancer incorporate client requirement insurance liability",
+          "clients prefer dealing with a company rather than sole proprietor subcontractor",
+          "contractor incorporated client worried about misclassification payroll taxes"
+        ]
+      }
+    },
+    {
+      "qid": "1783",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 3.6550436000106856,
+      "ranked": [
+        "223624",
+        "277812",
+        "174025",
+        "28764",
+        "477476",
+        "406789",
+        "84996",
+        "436960",
+        "408434",
+        "496433"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12516,
+        "output_tokens": 401,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.195331300026737,
+        "queries": [
+          "freelancing tax implications",
+          "freelance self-employment tax",
+          "1099 freelancer taxes quarterly estimated",
+          "freelancer Schedule C deductions expenses",
+          "freelance income taxes owe 1099-NEC"
+        ]
+      }
+    },
+    {
+      "qid": "6004",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 5.490019700024277,
+      "ranked": [
+        "345410",
+        "374797",
+        "336618",
+        "247738",
+        "13260",
+        "354559",
+        "216065",
+        "480337",
+        "238075",
+        "116750"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 5,
+        "reads": 1,
+        "messages": 0,
+        "input_tokens": 15010,
+        "output_tokens": 604,
+        "reported": true,
+        "padded": 8,
+        "llm_time_s": 4.4726190998917446,
+        "queries": [
+          "put-call parity",
+          "put-call parity forward synthetic",
+          "put call parity formula call minus put equals stock minus present value strike",
+          "put-call parity present value of strike price discounted, synthetic stock long call short put",
+          "parity relationship call put stock bond equivalent"
+        ]
+      }
+    },
+    {
+      "qid": "2923",
+      "recall@10": 0.2,
+      "ndcg@10": 0.1208113026994942,
+      "latency_s": 4.373681999975815,
+      "ranked": [
+        "468898",
+        "93397",
+        "407313",
+        "535501",
+        "45120",
+        "46381",
+        "481052",
+        "521070",
+        "421803",
+        "271472"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10746,
+        "output_tokens": 491,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 3.492474500206299,
+        "queries": [
+          "donate charity by check or credit card",
+          "charitable donation credit card vs check",
+          "paying charity with credit card tax deduction records",
+          "canceled check proof of charitable contribution",
+          "credit card statement acceptable proof donation deduction"
+        ]
+      }
+    },
+    {
+      "qid": "5271",
+      "recall@10": 0.3333333333333333,
+      "ndcg@10": 0.20210734650054757,
+      "latency_s": 5.059928099974059,
+      "ranked": [
+        "571295",
+        "95189",
+        "509739",
+        "67663",
+        "5181",
+        "413024",
+        "582010",
+        "205088",
+        "570095",
+        "308383"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11873,
+        "output_tokens": 571,
+        "reported": true,
+        "padded": 6,
+        "llm_time_s": 4.059410699992441,
+        "queries": [
+          "auto lease visa status requirement",
+          "car lease non-permanent resident work visa",
+          "leasing car on H1B visa dealership financing",
+          "lease approval immigration status leasing company require green card",
+          "auto loan international student credit history no SSN cosigner"
+        ]
+      }
+    },
+    {
+      "qid": "2108",
+      "recall@10": 0.3333333333333333,
+      "ndcg@10": 0.46927872602275644,
+      "latency_s": 4.979778100037947,
+      "ranked": [
+        "309171",
+        "116684",
+        "174384",
+        "56412",
+        "186029",
+        "93523",
+        "509075",
+        "502781",
+        "9970",
+        "365851"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11675,
+        "output_tokens": 618,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 3.969255199888721,
+        "queries": [
+          "pay taxes using online bill pay checking",
+          "IRS payment bill pay",
+          "pay federal taxes from bank account bill pay",
+          "add IRS as payee in bill pay for estimated tax",
+          "pay state income tax online with bank account direct debit"
+        ]
+      }
+    },
+    {
+      "qid": "7590",
+      "recall@10": 1.0,
+      "ndcg@10": 0.8772153153380493,
+      "latency_s": 5.4501483999192715,
+      "ranked": [
+        "105165",
+        "293679",
+        "446697",
+        "222505",
+        "272790",
+        "427629",
+        "569834",
+        "400356",
+        "268731",
+        "175927"
+      ],
+      "stats": {
+        "turns": 5,
+        "searches": 5,
+        "reads": 3,
+        "messages": 0,
+        "input_tokens": 25259,
+        "output_tokens": 582,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 4.441985899931751,
+        "queries": [
+          "target retirement fund US stocks home bias",
+          "target date fund international allocation US weighted",
+          "target retirement funds domestic equity heavy why",
+          "target date fund international stocks percentage of equity cap-weighted world market",
+          "home country bias investors own domestic stocks familiarity"
+        ]
+      }
+    },
+    {
+      "qid": "932",
+      "recall@10": 0.5,
+      "ndcg@10": 0.21840743681816419,
+      "latency_s": 4.169993599993177,
+      "ranked": [
+        "457455",
+        "32610",
+        "424175",
+        "66262",
+        "187706",
+        "387010",
+        "326717",
+        "385221",
+        "588327",
+        "84528"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 1,
+        "messages": 0,
+        "input_tokens": 11311,
+        "output_tokens": 463,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 3.207844600081444,
+        "queries": [
+          "freelance income abroad state income tax U.S. citizen",
+          "foreign earned income exclusion state taxes",
+          "living abroad domicile state tax residency expat",
+          "state residency lost after moving abroad no state income tax self-employed"
+        ]
+      }
+    },
+    {
+      "qid": "5981",
+      "recall@10": 0.8,
+      "ndcg@10": 0.843537875344446,
+      "latency_s": 3.6113584999693558,
+      "ranked": [
+        "286182",
+        "245532",
+        "564554",
+        "265267",
+        "325564",
+        "210439",
+        "80519",
+        "542557",
+        "245117",
+        "68269"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10299,
+        "output_tokens": 375,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 2.910110199940391,
+        "queries": [
+          "foreigner buy apartment China",
+          "foreigners purchase property China restrictions",
+          "China real estate investment flat non-resident",
+          "China property bubble buy apartment"
+        ]
+      }
+    },
+    {
+      "qid": "4837",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.5286438999464735,
+      "ranked": [
+        "29271",
+        "19479",
+        "516578",
+        "59327",
+        "124452",
+        "84267",
+        "405695",
+        "204035",
+        "546190",
+        "886"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12109,
+        "output_tokens": 504,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 3.528564899927005,
+        "queries": [
+          "mortgage to pay off debts consolidation",
+          "cash-out refinance pay off credit card debt",
+          "mortgage loan proceeds used to repay outstanding debts",
+          "remortgage to clear credit cards and loans",
+          "mortgage lender allow paying off other debts at closing"
+        ]
+      }
+    },
+    {
+      "qid": "4415",
+      "recall@10": 0.25,
+      "ndcg@10": 0.16812753627111746,
+      "latency_s": 4.302457600017078,
+      "ranked": [
+        "303710",
+        "468089",
+        "59225",
+        "147646",
+        "437614",
+        "105238",
+        "10584",
+        "501461",
+        "117578",
+        "587636"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12171,
+        "output_tokens": 561,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 3.759037400013767,
+        "queries": [
+          "inflation rate",
+          "current inflation CPI",
+          "inflation percent year",
+          "how to calculate inflation percent change",
+          "where to find current inflation rate"
+        ]
+      }
+    },
+    {
+      "qid": "1915",
+      "recall@10": 0.5,
+      "ndcg@10": 0.18457569677956817,
+      "latency_s": 6.416138999979012,
+      "ranked": [
+        "387165",
+        "66246",
+        "393953",
+        "297588",
+        "583956",
+        "463595",
+        "151098",
+        "342694",
+        "318266",
+        "303851"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 7,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 15665,
+        "output_tokens": 749,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 5.013438499881886,
+        "queries": [
+          "company failed to collect VAT pay",
+          "VAT not charged by supplier liable pay VAT later",
+          "seller forgot to add VAT invoice pay backdated VAT",
+          "supplier did not charge VAT on invoice, can they ask for it later",
+          "invoice without VAT retrospectively demand payment time limit",
+          "business underpaid VAT HMRC customer liability",
+          "VAT charged wrongly refund customer HMRC"
+        ]
+      }
+    },
+    {
+      "qid": "8378",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 2.9611636999761686,
+      "ranked": [
+        "133644",
+        "481339",
+        "294573",
+        "361345",
+        "546125",
+        "273829",
+        "127702",
+        "246221",
+        "584291",
+        "466777"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4930,
+        "output_tokens": 419,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 2.475644300109707,
+        "queries": [
+          "ESPP sell shares wait",
+          "employee stock purchase plan sell immediately",
+          "ESPP qualifying disposition holding period"
+        ]
+      }
+    },
+    {
+      "qid": "2316",
+      "recall@10": 0.5,
+      "ndcg@10": 0.6131471927654584,
+      "latency_s": 8.421841399976984,
+      "ranked": [
+        "482343",
+        "250281",
+        "133540",
+        "493576",
+        "116930",
+        "588134",
+        "154417",
+        "16051",
+        "126565",
+        "29790"
+      ],
+      "stats": {
+        "turns": 6,
+        "searches": 7,
+        "reads": 1,
+        "messages": 0,
+        "input_tokens": 30991,
+        "output_tokens": 982,
+        "reported": true,
+        "padded": 9,
+        "llm_time_s": 7.0950885999482125,
+        "queries": [
+          "El Al exchange rate shekels final payment",
+          "El Al conversion dollars to shekels exchange rate",
+          "El Al",
+          "representative rate Bank of Israel shekels final payment converted",
+          "airline Israel paid in dollars converted to shekels at rate on day of payment",
+          "El Al pension final payment exchange rate",
+          "final payment El Al ticket charged shekels rate bank"
+        ]
+      }
+    },
+    {
+      "qid": "8102",
+      "recall@10": 0.25,
+      "ndcg@10": 0.24630238874073,
+      "latency_s": 4.130181599990465,
+      "ranked": [
+        "239714",
+        "552707",
+        "250873",
+        "351615",
+        "66834",
+        "443691",
+        "26292",
+        "596664",
+        "203638",
+        "171819"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12328,
+        "output_tokens": 456,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 3.204152699909173,
+        "queries": [
+          "when to sell a long-term stock holding",
+          "long-term investor sell criteria",
+          "buy and hold when to sell",
+          "sell when fundamentals change thesis broken",
+          "reasons to sell a stock investment thesis"
+        ]
+      }
+    },
+    {
+      "qid": "3405",
+      "recall@10": 1.0,
+      "ndcg@10": 0.6309297535714575,
+      "latency_s": 3.9218113999813795,
+      "ranked": [
+        "367562",
+        "495467",
+        "198945",
+        "364938",
+        "507107",
+        "136932",
+        "588327",
+        "111531",
+        "249904",
+        "192083"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10417,
+        "output_tokens": 490,
+        "reported": true,
+        "padded": 1,
+        "llm_time_s": 3.1304064000723884,
+        "queries": [
+          "non resident alien standard deduction itemized",
+          "nonresident alien itemize deductions Form 1040NR",
+          "nonresident alien not eligible standard deduction",
+          "nonresident alien Schedule A itemized deductions state income tax",
+          "India tax treaty nonresident standard deduction student"
+        ]
+      }
+    },
+    {
+      "qid": "7928",
+      "recall@10": 0.75,
+      "ndcg@10": 0.431992295847858,
+      "latency_s": 3.040934099932201,
+      "ranked": [
+        "410404",
+        "353224",
+        "464132",
+        "501504",
+        "480967",
+        "215118",
+        "39265",
+        "30427",
+        "517873",
+        "118633"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 6466,
+        "output_tokens": 411,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 2.695200000074692,
+        "queries": [
+          "bet against stock going down",
+          "short selling stock",
+          "put options profit when stock falls",
+          "inverse ETF bearish"
+        ]
+      }
+    },
+    {
+      "qid": "603",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 6.6260393999982625,
+      "ranked": [
+        "27670",
+        "382571",
+        "138511",
+        "540442",
+        "368010",
+        "310056",
+        "95869",
+        "91982",
+        "64103",
+        "86952"
+      ],
+      "stats": {
+        "turns": 5,
+        "searches": 6,
+        "reads": 1,
+        "messages": 0,
+        "input_tokens": 25597,
+        "output_tokens": 788,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 5.534726900048554,
+        "queries": [
+          "education loan application rejected without payslip collateral",
+          "student loan no payslip collateral guarantor",
+          "education loan payslip required",
+          "education loan without salary slip income proof bank",
+          "student loan application rejected no income collateral co-signer",
+          "education loan collateral security payslip guarantee rejection"
+        ]
+      }
+    },
+    {
+      "qid": "1281",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 5.23799329996109,
+      "ranked": [
+        "253735",
+        "197546",
+        "72209",
+        "128861",
+        "585023",
+        "427024",
+        "486067",
+        "505110",
+        "105158",
+        "318260"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 6,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 8444,
+        "output_tokens": 703,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 4.190134699922055,
+        "queries": [
+          "amended tax return FTB IRS review mistakes",
+          "amended return processing IRS errors detected",
+          "FTB amended return review process",
+          "amended return audit selected examination IRS notice",
+          "Franchise Tax Board audit amended California return",
+          "how long does IRS take to process amended return"
+        ]
+      }
+    },
+    {
+      "qid": "3830",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 5.263952100067399,
+      "ranked": [
+        "203889",
+        "13496",
+        "169598",
+        "272173",
+        "521753",
+        "531306",
+        "157712",
+        "598607",
+        "153142",
+        "476550"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10935,
+        "output_tokens": 676,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 4.306614699889906,
+        "queries": [
+          "US citizen sending money to India fiance property purchase",
+          "wire money India buy property non-resident gift tax",
+          "transfer money to India spouse property FEMA NRI",
+          "fiancee India buy house money gift US tax",
+          "US citizen buy property in India for someone else non-resident gift"
+        ]
+      }
+    },
+    {
+      "qid": "3837",
+      "recall@10": 1.0,
+      "ndcg@10": 0.3562071871080222,
+      "latency_s": 8.004049199982546,
+      "ranked": [
+        "67741",
+        "218696",
+        "44578",
+        "359515",
+        "164513",
+        "345533",
+        "219208",
+        "562964",
+        "569342",
+        "32671"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 7,
+        "reads": 3,
+        "messages": 0,
+        "input_tokens": 20790,
+        "output_tokens": 1352,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 6.935261700069532,
+        "queries": [
+          "Roth IRA fees Vanguard Scottrade TIAA-CREF",
+          "Vanguard Roth IRA account fee",
+          "TIAA-CREF Roth IRA fees",
+          "Scottrade Roth IRA opening fee",
+          "Scottrade IRA annual maintenance fee",
+          "TIAA-CREF IRA annual fee charge",
+          "Vanguard IRA annual account maintenance fee $20 waived"
+        ]
+      }
+    },
+    {
+      "qid": "4447",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 2.7813597000204027,
+      "ranked": [
+        "296420",
+        "419986",
+        "19691",
+        "253960",
+        "333931",
+        "71861",
+        "159336",
+        "34925",
+        "534670",
+        "392885"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4856,
+        "output_tokens": 321,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 2.399536299984902,
+        "queries": [
+          "hold bonds to maturity short term bonds",
+          "sell bond before maturity",
+          "short-term bond fund vs individual bond maturity"
+        ]
+      }
+    },
+    {
+      "qid": "2376",
+      "recall@10": 0.625,
+      "ndcg@10": 0.7269547345639102,
+      "latency_s": 3.7665872999932617,
+      "ranked": [
+        "114417",
+        "64263",
+        "549833",
+        "227562",
+        "402249",
+        "324411",
+        "101519",
+        "48522",
+        "223626",
+        "212131"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 8251,
+        "output_tokens": 413,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.23459439992439,
+        "queries": [
+          "gas stations different prices same area",
+          "gas station price differences local competition",
+          "why gas prices vary between stations nearby",
+          "gas station pricing location traffic rent branded unbranded margin"
+        ]
+      }
+    },
+    {
+      "qid": "4777",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 8.32811459992081,
+      "ranked": [
+        "468104",
+        "365342",
+        "97484",
+        "247083",
+        "478413",
+        "281599",
+        "386864",
+        "171631",
+        "482112",
+        "308802"
+      ],
+      "stats": {
+        "turns": 5,
+        "searches": 8,
+        "reads": 2,
+        "messages": 0,
+        "input_tokens": 30850,
+        "output_tokens": 1028,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 6.754209099919535,
+        "queries": [
+          "financing repairs before selling home",
+          "home repairs loan before selling house",
+          "pay for repairs to sell house cash out refinance",
+          "fix up house before selling how to pay for it",
+          "home equity loan HELOC to fund repairs before sale",
+          "sell house as is versus make repairs buyer",
+          "repairs needed before listing house financing options",
+          "borrow money to make repairs so house sells faster"
+        ]
+      }
+    },
+    {
+      "qid": "5741",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 2.8281311000464484,
+      "ranked": [
+        "136825",
+        "325212",
+        "224366",
+        "379546",
+        "313570",
+        "520165",
+        "167088",
+        "235772",
+        "30044",
+        "341148"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4943,
+        "output_tokens": 346,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 2.47301190008875,
+        "queries": [
+          "learn investing stock market beginner",
+          "books to learn about stock market investing",
+          "how to start learning stocks"
+        ]
+      }
+    },
+    {
+      "qid": "2318",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 4.518736500060186,
+      "ranked": [
+        "428533",
+        "245011",
+        "382295",
+        "136932",
+        "343477",
+        "78632",
+        "313361",
+        "5762",
+        "28758",
+        "315571"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11708,
+        "output_tokens": 483,
+        "reported": true,
+        "padded": 1,
+        "llm_time_s": 3.6870044000679627,
+        "queries": [
+          "F1 student eBay selling income tax",
+          "F-1 visa online selling taxes",
+          "nonresident alien eBay sales self-employment tax",
+          "selling on eBay student visa taxable income business",
+          "F1 student run business online sales tax return 1040NR"
+        ]
+      }
+    },
+    {
+      "qid": "620",
+      "recall@10": 0.2,
+      "ndcg@10": 0.11305340175787204,
+      "latency_s": 4.367564899963327,
+      "ranked": [
+        "309909",
+        "492402",
+        "509073",
+        "572848",
+        "489959",
+        "278734",
+        "189303",
+        "535817",
+        "329798",
+        "378024"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11890,
+        "output_tokens": 494,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 3.518168400041759,
+        "queries": [
+          "multiple current accounts different banks",
+          "many bank accounts spread across banks",
+          "FSCS protection deposits multiple banks",
+          "current accounts with several banks pros cons",
+          "too many bank accounts hassle keep track"
+        ]
+      }
+    },
+    {
+      "qid": "8271",
+      "recall@10": 0.5,
+      "ndcg@10": 0.6131471927654584,
+      "latency_s": 4.092645199969411,
+      "ranked": [
+        "376709",
+        "342485",
+        "46587",
+        "582005",
+        "114768",
+        "519470",
+        "260756",
+        "508055",
+        "503596",
+        "538898"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11534,
+        "output_tokens": 459,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 3.315290200058371,
+        "queries": [
+          "zero interest rate environment income",
+          "zero interest rates savings income retirees",
+          "low interest rates generate income investments",
+          "steady income real return zero-interest rate",
+          "how to earn income when interest rates near zero dividends bonds"
+        ]
+      }
+    },
+    {
+      "qid": "4865",
+      "recall@10": 1.0,
+      "ndcg@10": 0.38685280723454163,
+      "latency_s": 3.3745714999968186,
+      "ranked": [
+        "343042",
+        "394151",
+        "113150",
+        "482871",
+        "100485",
+        "179649",
+        "412657",
+        "546379",
+        "47738",
+        "409777"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 3,
+        "reads": 2,
+        "messages": 0,
+        "input_tokens": 10912,
+        "output_tokens": 353,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 2.7274572999449447,
+        "queries": [
+          "historical stock prices differ between websites",
+          "adjusted close dividends splits historical prices",
+          "historical price data discrepancy source Yahoo Google"
+        ]
+      }
+    },
+    {
+      "qid": "864",
+      "recall@10": 0.5,
+      "ndcg@10": 0.644824486427155,
+      "latency_s": 3.6835760000394657,
+      "ranked": [
+        "472924",
+        "30142",
+        "24890",
+        "170613",
+        "329774",
+        "197703",
+        "203446",
+        "224438",
+        "112728",
+        "71569"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10693,
+        "output_tokens": 457,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 3.071063300012611,
+        "queries": [
+          "QuickBooks vs Excel accounting software",
+          "accounting software instead of spreadsheet",
+          "Quickbooks Excel bookkeeping",
+          "spreadsheet errors double-entry accounting software reconciliation"
+        ]
+      }
+    },
+    {
+      "qid": "5888",
+      "recall@10": 0.5,
+      "ndcg@10": 0.17723928678404774,
+      "latency_s": 2.688291300088167,
+      "ranked": [
+        "490529",
+        "125497",
+        "509075",
+        "526989",
+        "213242",
+        "417785",
+        "8496",
+        "525129",
+        "533589",
+        "336792"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4938,
+        "output_tokens": 332,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 2.2340909000486135,
+        "queries": [
+          "balance transfer interest charged on purchases",
+          "balance transfer promotional rate purchases accrue interest",
+          "credit card balance transfer interest on new purchases grace period"
+        ]
+      }
+    },
+    {
+      "qid": "2568",
+      "recall@10": 0.2857142857142857,
+      "ndcg@10": 0.41231449937143627,
+      "latency_s": 3.5774894000496715,
+      "ranked": [
+        "346042",
+        "376016",
+        "388798",
+        "280405",
+        "9146",
+        "584106",
+        "408932",
+        "258247",
+        "166314",
+        "260159"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10593,
+        "output_tokens": 426,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 2.9241162000689656,
+        "queries": [
+          "paying cash for a car",
+          "buying car with cash dealership",
+          "cash car purchase cashier's check",
+          "dealer wire transfer cash deposit car purchase"
+        ]
+      }
+    },
+    {
+      "qid": "5150",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 14.287014600005932,
+      "ranked": [
+        "229937",
+        "277964",
+        "48404",
+        "196233",
+        "493638",
+        "299840",
+        "236194",
+        "34108",
+        "585661",
+        "20261"
+      ],
+      "stats": {
+        "turns": 8,
+        "searches": 13,
+        "reads": 1,
+        "messages": 0,
+        "input_tokens": 65051,
+        "output_tokens": 1658,
+        "reported": true,
+        "padded": 6,
+        "llm_time_s": 11.407037099939771,
+        "queries": [
+          "offline merchant collect credit card information other than transaction",
+          "merchant ZIP code credit card purchase privacy law",
+          "state law prohibits collecting zip code credit card transaction",
+          "Song-Beverly credit card zip code personal identification information",
+          "card security code merchant store keep card number for future use",
+          "brick and mortar store collect card number permitted purposes",
+          "merchants may only request zip code for fraud prevention not required to write down card details",
+          "merchant writing down credit card number allowed law",
+          "pay at the pump zip code verification marketing California",
+          "retailers ask for zip code at register legal marketing purposes",
+          "Civil Code 1747.08 credit card transaction personal identification information",
+          "offline merchant zip code required collect fraud purchase cash card",
+          "store may not write down personal information credit card purchase in-person"
+        ]
+      }
+    },
+    {
+      "qid": "7124",
+      "recall@10": 0.75,
+      "ndcg@10": 0.787702056960637,
+      "latency_s": 3.9242237999569625,
+      "ranked": [
+        "526110",
+        "558617",
+        "477426",
+        "7170",
+        "154725",
+        "414940",
+        "184303",
+        "204209",
+        "487074",
+        "533140"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10470,
+        "output_tokens": 371,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 3.0485985999694094,
+        "queries": [
+          "price-to-book ratio less than 1",
+          "P/B ratio below 1 stocks",
+          "price to book value undervalued book value per share",
+          "stock trading below book value why"
+        ]
+      }
+    },
+    {
+      "qid": "2857",
+      "recall@10": 0.25,
+      "ndcg@10": 0.16812753627111746,
+      "latency_s": 3.8615945000201464,
+      "ranked": [
+        "542051",
+        "315930",
+        "98230",
+        "501384",
+        "127566",
+        "233223",
+        "234103",
+        "272840",
+        "540919",
+        "303944"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12170,
+        "output_tokens": 503,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.30805979995057,
+        "queries": [
+          "invest in oil",
+          "oil stocks ETF investing",
+          "crude oil investment how to get exposure",
+          "oil ETF futures contango roll risk",
+          "energy sector fund diversification portfolio percentage"
+        ]
+      }
+    },
+    {
+      "qid": "8539",
+      "recall@10": 0.25,
+      "ndcg@10": 0.24630238874073,
+      "latency_s": 3.6647381000220776,
+      "ranked": [
+        "283074",
+        "292609",
+        "67415",
+        "425793",
+        "365479",
+        "517268",
+        "150475",
+        "304398",
+        "469599",
+        "293679"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10830,
+        "output_tokens": 364,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 2.8068166999146342,
+        "queries": [
+          "risk differs for different investors",
+          "risk depends on investor circumstances time horizon",
+          "risk is subjective personal to each investor",
+          "same asset different risk for different investors tolerance"
+        ]
+      }
+    },
+    {
+      "qid": "6896",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 3.9053273000754416,
+      "ranked": [
+        "156092",
+        "190687",
+        "400730",
+        "66834",
+        "23217",
+        "553253",
+        "343219",
+        "169240",
+        "366560",
+        "378594"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 5485,
+        "output_tokens": 612,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 3.2960119999479502,
+        "queries": [
+          "sell stock capital gains repurchase later",
+          "wash sale rule repurchase same stock",
+          "sell and buy back to reset cost basis capital gains tax"
+        ]
+      }
+    },
+    {
+      "qid": "1085",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 3.8071872000582516,
+      "ranked": [
+        "268777",
+        "450031",
+        "259764",
+        "390461",
+        "280140",
+        "161422",
+        "427175",
+        "553235",
+        "372039",
+        "546028"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10539,
+        "output_tokens": 425,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.18493719981052,
+        "queries": [
+          "disputed debt credit report",
+          "dispute credit bureau account marked disputed",
+          "debt dispute collection agency credit report FCRA",
+          "dispute notation credit report verify creditor 30 days remove",
+          "Fair Credit Reporting Act dispute investigation credit bureau"
+        ]
+      }
+    },
+    {
+      "qid": "5422",
+      "recall@10": 0.5,
+      "ndcg@10": 0.44149241373678083,
+      "latency_s": 3.9916762000648305,
+      "ranked": [
+        "276786",
+        "13513",
+        "273906",
+        "338532",
+        "172587",
+        "526015",
+        "221319",
+        "128953",
+        "224366",
+        "463713"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11558,
+        "output_tokens": 429,
+        "reported": true,
+        "padded": 1,
+        "llm_time_s": 3.074337200028822,
+        "queries": [
+          "book recommendations learning stocks bonds derivatives beginner",
+          "good books for learning options futures derivatives",
+          "book math background investing quantitative beginner",
+          "Bodie Kane Marcus Investments textbook",
+          "Hull options futures derivatives textbook recommended"
+        ]
+      }
+    },
+    {
+      "qid": "8247",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.263474600040354,
+      "ranked": [
+        "473658",
+        "586010",
+        "437907",
+        "45190",
+        "343219",
+        "580802",
+        "153112",
+        "161019",
+        "370244",
+        "173133"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12096,
+        "output_tokens": 511,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.5355910998769104,
+        "queries": [
+          "tax on stocks ETF capital gains",
+          "ETF taxed dividends capital gains tax",
+          "stock sale tax short-term long-term holding period",
+          "ETF tax efficient compared to mutual fund capital gains distributions",
+          "are ETFs taxed differently than stocks"
+        ]
+      }
+    },
+    {
+      "qid": "4946",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 4.40945609996561,
+      "ranked": [
+        "121690",
+        "129195",
+        "95635",
+        "33628",
+        "431459",
+        "272166",
+        "533075",
+        "296814",
+        "71601",
+        "183959"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11749,
+        "output_tokens": 599,
+        "reported": true,
+        "padded": 7,
+        "llm_time_s": 3.844241200014949,
+        "queries": [
+          "Mitsubishi financial data",
+          "Mitsubishi stock ADR data error",
+          "Mitsubishi UFJ financials incorrect",
+          "Mitsubishi Motors fuel economy falsified data scandal",
+          "MUFG earnings numbers restated"
+        ]
+      }
+    },
+    {
+      "qid": "10482",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.072995399939828,
+      "ranked": [
+        "535732",
+        "333961",
+        "272486",
+        "134005",
+        "252677",
+        "175576",
+        "361010",
+        "497281",
+        "291015",
+        "525089"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10812,
+        "output_tokens": 511,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.307682799990289,
+        "queries": [
+          "rollover bond fund dollar cost averaging",
+          "401k rollover IRA dollar cost averaging bond fund",
+          "lump sum rollover dollar cost average into bonds",
+          "bond fund dollar cost averaging lump sum rollover risk",
+          "rolled over 401k into bond index fund gradually invest"
+        ]
+      }
+    },
+    {
+      "qid": "4571",
+      "recall@10": 0.6666666666666666,
+      "ndcg@10": 0.6257049680303419,
+      "latency_s": 3.8466102000093088,
+      "ranked": [
+        "213824",
+        "5064",
+        "519314",
+        "331253",
+        "202472",
+        "103610",
+        "282392",
+        "44768",
+        "160931",
+        "69171"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11171,
+        "output_tokens": 434,
+        "reported": true,
+        "padded": 9,
+        "llm_time_s": 2.9443876000586897,
+        "queries": [
+          "HSBC Hong Kong Deposit Plus",
+          "HSBC \"Deposit Plus\" structured deposit",
+          "dual currency deposit HSBC Hong Kong strategy",
+          "dual currency product FX option currency link",
+          "dual currency investment strategy base currency alternative currency"
+        ]
+      }
+    },
+    {
+      "qid": "8789",
+      "recall@10": 0.6666666666666666,
+      "ndcg@10": 0.7039180890341347,
+      "latency_s": 2.8513702999334782,
+      "ranked": [
+        "87349",
+        "288403",
+        "41912",
+        "328341",
+        "339854",
+        "58290",
+        "341293",
+        "200928",
+        "14870",
+        "580512"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 5263,
+        "output_tokens": 306,
+        "reported": true,
+        "padded": 8,
+        "llm_time_s": 2.1354161001509055,
+        "queries": [
+          "earnings per share cents a share meaning",
+          "profit per share jumped cents",
+          "what does earnings per share mean net income divided by shares outstanding"
+        ]
+      }
+    },
+    {
+      "qid": "8034",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 5.322595999925397,
+      "ranked": [
+        "76330",
+        "289429",
+        "280992",
+        "60728",
+        "219927",
+        "177798",
+        "322725",
+        "282376",
+        "518932",
+        "452736"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12202,
+        "output_tokens": 706,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 4.380482800072059,
+        "queries": [
+          "average cost of a portfolio trading site",
+          "average cost basis portfolio brokerage",
+          "portfolio average cost per share trading platform",
+          "portfolio tool average cost calculated website",
+          "what is my average cost in portfolio on trading site"
+        ]
+      }
+    },
+    {
+      "qid": "4600",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 3.691082299919799,
+      "ranked": [
+        "401952",
+        "198465",
+        "411966",
+        "198732",
+        "394702",
+        "180958",
+        "307380",
+        "72652",
+        "237317",
+        "64130"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10891,
+        "output_tokens": 416,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.1783849999774247,
+        "queries": [
+          "government bond prices fluctuate interest rates",
+          "bond price volatility duration",
+          "bond prices move inversely with yields",
+          "long maturity bonds more sensitive to rate changes price"
+        ]
+      }
+    },
+    {
+      "qid": "2423",
+      "recall@10": 0.14285714285714285,
+      "ndcg@10": 0.13743816645714543,
+      "latency_s": 4.591620100080036,
+      "ranked": [
+        "417787",
+        "234846",
+        "529444",
+        "47614",
+        "306482",
+        "383102",
+        "143591",
+        "152985",
+        "598332",
+        "283635"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10268,
+        "output_tokens": 528,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 3.6440298998495564,
+        "queries": [
+          "what age should I start saving money",
+          "when to start saving for retirement age",
+          "too late to start saving at age",
+          "should stop saving for retirement near retirement age",
+          "never too late to start saving 40s 50s"
+        ]
+      }
+    },
+    {
+      "qid": "8475",
+      "recall@10": 0.5714285714285714,
+      "ndcg@10": 0.6724559848537955,
+      "latency_s": 3.453597199986689,
+      "ranked": [
+        "494655",
+        "104793",
+        "240562",
+        "257187",
+        "184077",
+        "262322",
+        "538238",
+        "437427",
+        "332152",
+        "410675"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 9971,
+        "output_tokens": 361,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 2.699688700027764,
+        "queries": [
+          "401k no cash option investments",
+          "401k \"cash\" option money market fund stable value",
+          "401k pure cash not available",
+          "401k plan money market fund cash equivalent banking rules"
+        ]
+      }
+    },
+    {
+      "qid": "4523",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.58184070000425,
+      "ranked": [
+        "9597",
+        "123718",
+        "364666",
+        "32671",
+        "512738",
+        "551590",
+        "272486",
+        "253803",
+        "136879",
+        "578530"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 12288,
+        "output_tokens": 548,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.7705297000939026,
+        "queries": [
+          "20 year old invest $25k",
+          "young investor lump sum index funds retirement",
+          "just turned 20 savings invest what to do",
+          "young investor Roth IRA index funds emergency fund first",
+          "inherited or saved lump sum in your twenties how to invest"
+        ]
+      }
+    },
+    {
+      "qid": "8513",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 6.214590699994005,
+      "ranked": [
+        "244305",
+        "534734",
+        "414649",
+        "504996",
+        "427338",
+        "84891",
+        "321205",
+        "363178",
+        "462135",
+        "203873"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 8,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 21107,
+        "output_tokens": 707,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 4.871757300104946,
+        "queries": [
+          "buy the dip after earnings miss",
+          "stock dropped after earnings, buy the dip?",
+          "earnings miss stock falls buying opportunity",
+          "post-earnings drop should I buy",
+          "company missed earnings guidance cut, is it a good time to buy",
+          "earnings miss overreaction stock rebound",
+          "stock fell on earnings report, long-term investor should hold or buy more",
+          "missed estimates stock price drop market reaction"
+        ]
+      }
+    },
+    {
+      "qid": "1198",
+      "recall@10": 1.0,
+      "ndcg@10": 0.6309297535714575,
+      "latency_s": 5.614370999974199,
+      "ranked": [
+        "37725",
+        "56718",
+        "139501",
+        "586026",
+        "531356",
+        "232544",
+        "524788",
+        "89611",
+        "152595",
+        "297241"
+      ],
+      "stats": {
+        "turns": 5,
+        "searches": 5,
+        "reads": 3,
+        "messages": 0,
+        "input_tokens": 27358,
+        "output_tokens": 639,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 4.645462699932978,
+        "queries": [
+          "IRS reclassification employee independent contractor consequences",
+          "reclassified as employee back taxes employer penalties",
+          "worker reclassification Form SS-8 employer liability",
+          "reclassified contractor employee owe back payroll taxes penalties interest",
+          "reclassify workers employees IRS audit employer owes FICA withholding liability"
+        ]
+      }
+    },
+    {
+      "qid": "9291",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 3.7563959999242797,
+      "ranked": [
+        "500486",
+        "377429",
+        "17208",
+        "138383",
+        "143238",
+        "236006",
+        "454224",
+        "179737",
+        "88823",
+        "266457"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4776,
+        "output_tokens": 485,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 2.937194099999033,
+        "queries": [
+          "Vanguard Admiral Shares vs ETF Roth IRA",
+          "Admiral Shares Roth IRA mutual fund ETF consequences",
+          "Vanguard mutual fund share class versus ETF share class IRA"
+        ]
+      }
+    },
+    {
+      "qid": "8532",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 5.396627899957821,
+      "ranked": [
+        "21768",
+        "349974",
+        "279401",
+        "387801",
+        "206377",
+        "243714",
+        "112321",
+        "316866",
+        "163630",
+        "37517"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 6,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 13147,
+        "output_tokens": 763,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 4.668732800055295,
+        "queries": [
+          "options trading terms explained",
+          "what does strike price mean options",
+          "call option put option definition",
+          "in the money out of the money option meaning",
+          "option premium expiration intrinsic extrinsic value",
+          "covered call collar spread explained"
+        ]
+      }
+    },
+    {
+      "qid": "1824",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 6.458659299998544,
+      "ranked": [
+        "295250",
+        "281045",
+        "346134",
+        "377152",
+        "131483",
+        "364378",
+        "401454",
+        "43217",
+        "88124",
+        "195207"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 6,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 18166,
+        "output_tokens": 764,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 5.210065800114535,
+        "queries": [
+          "open business bank account LLC remotely",
+          "foreign owner LLC bank account online without visiting branch",
+          "non-resident LLC US bank account EIN",
+          "non-US resident open US bank account LLC online",
+          "bank account for US LLC from abroad ITIN",
+          "online business bank Mercury Relay Wise account LLC no SSN"
+        ]
+      }
+    },
+    {
+      "qid": "5054",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 6.476722400053404,
+      "ranked": [
+        "403916",
+        "506604",
+        "418281",
+        "10665",
+        "128281",
+        "595759",
+        "152839",
+        "593962",
+        "250844",
+        "34451"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 8,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 23485,
+        "output_tokens": 816,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 5.115148000186309,
+        "queries": [
+          "stress test investment plan",
+          "stress test retirement plan market crash scenario",
+          "stress testing portfolio downturn",
+          "what if scenario analysis retirement withdrawal sequence of returns",
+          "test my financial plan worst case job loss market drop",
+          "financial plan assumptions sensitivity inflation returns Monte Carlo",
+          "stress test budget emergency scenarios savings plan",
+          "run numbers worst case bear market 50% drop how much would I lose plan"
+        ]
+      }
+    },
+    {
+      "qid": "1159",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.315595599939115,
+      "ranked": [
+        "163881",
+        "237282",
+        "15270",
+        "223624",
+        "588253",
+        "468086",
+        "481211",
+        "55064",
+        "205946",
+        "460648"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 10628,
+        "output_tokens": 509,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 3.492965800105594,
+        "queries": [
+          "freelancing summer student",
+          "freelance side job college student summer",
+          "freelance taxes student income",
+          "summer side gig freelance work for students",
+          "freelance platform clients find work skills"
+        ]
+      }
+    },
+    {
+      "qid": "4920",
+      "recall@10": 1.0,
+      "ndcg@10": 0.9066276098484507,
+      "latency_s": 2.5966130999149755,
+      "ranked": [
+        "306815",
+        "228341",
+        "314410",
+        "425204",
+        "543811",
+        "338782",
+        "84870",
+        "277217",
+        "82294",
+        "344783"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 5457,
+        "output_tokens": 309,
+        "reported": true,
+        "padded": 5,
+        "llm_time_s": 2.069832600071095,
+        "queries": [
+          "margin leverage portfolio variance",
+          "borrowing on margin increases volatility",
+          "leverage standard deviation portfolio returns"
+        ]
+      }
+    },
+    {
+      "qid": "68",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.341793500003405,
+      "ranked": [
+        "510181",
+        "510863",
+        "59819",
+        "60652",
+        "397367",
+        "380548",
+        "528564",
+        "300510",
+        "354716",
+        "160612"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11000,
+        "output_tokens": 511,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 3.5767701000440866,
+        "queries": [
+          "small business deductible amount",
+          "Section 179 deduction small business",
+          "business expenses deductible small business owner",
+          "purpose of Section 179 expensing limit small business intent",
+          "Congress intended deduction small businesses"
+        ]
+      }
+    },
+    {
+      "qid": "7269",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.974194500013255,
+      "ranked": [
+        "294644",
+        "272202",
+        "152045",
+        "232311",
+        "37306",
+        "308991",
+        "473644",
+        "85074",
+        "239484",
+        "343586"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 5,
+        "reads": 2,
+        "messages": 0,
+        "input_tokens": 17839,
+        "output_tokens": 578,
+        "reported": true,
+        "padded": 6,
+        "llm_time_s": 4.144588300026953,
+        "queries": [
+          "Quicken investment performance tracking",
+          "Quicken rollover 401k cost basis",
+          "Quicken rollover IRA track returns",
+          "Quicken transfer shares between accounts rollover tax deferred",
+          "Quicken investment returns cost basis rollover ignore"
+        ]
+      }
+    },
+    {
+      "qid": "750",
+      "recall@10": 0.5,
+      "ndcg@10": 0.6131471927654584,
+      "latency_s": 3.9917238000780344,
+      "ranked": [
+        "419768",
+        "180501",
+        "216892",
+        "293920",
+        "312493",
+        "103590",
+        "175951",
+        "252237",
+        "156499",
+        "594652"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4132,
+        "output_tokens": 546,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 3.1964393000816926,
+        "queries": [
+          "state tax refund repaid income declare",
+          "repayment of state refund prior year tax benefit rule",
+          "state income tax refund taxable income itemized deductions"
+        ]
+      }
+    },
+    {
+      "qid": "9701",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 6.783597800065763,
+      "ranked": [
+        "384000",
+        "99200",
+        "10797",
+        "61864",
+        "276950",
+        "127743",
+        "473883",
+        "592612",
+        "408865",
+        "390959"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 8,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 22812,
+        "output_tokens": 852,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 5.620044099981897,
+        "queries": [
+          "bet against London housing market",
+          "short UK housing market",
+          "house price crash bet UK property short position",
+          "spread betting house prices fall",
+          "shorting housebuilder shares UK Persimmon Barratt",
+          "property price derivatives hedge house price falling",
+          "bet on house prices going down CFD",
+          "housing bubble bearish trade UK property investment"
+        ]
+      }
+    },
+    {
+      "qid": "6199",
+      "recall@10": 0.5,
+      "ndcg@10": 0.5585075862632192,
+      "latency_s": 4.314977300004102,
+      "ranked": [
+        "584273",
+        "36659",
+        "298794",
+        "169921",
+        "310456",
+        "515042",
+        "72238",
+        "462668",
+        "59969",
+        "165468"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 4,
+        "reads": 1,
+        "messages": 0,
+        "input_tokens": 12148,
+        "output_tokens": 537,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.670283100102097,
+        "queries": [
+          "how can countries owe so much money national debt",
+          "government borrowing bonds who buys government debt",
+          "national debt why governments borrow deficit spending",
+          "foreign governments hold US treasuries China Japan debt holders"
+        ]
+      }
+    },
+    {
+      "qid": "9126",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 2.749127299990505,
+      "ranked": [
+        "477588",
+        "575408",
+        "581672",
+        "334473",
+        "166227",
+        "362473",
+        "228810",
+        "292045",
+        "244754",
+        "271109"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4188,
+        "output_tokens": 294,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 2.3130655001150444,
+        "queries": [
+          "short option random assignment",
+          "assignment short call option exercised randomly",
+          "early assignment short option how brokers assign"
+        ]
+      }
+    },
+    {
+      "qid": "34",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 8.180248499964364,
+      "ranked": [
+        "168890",
+        "550083",
+        "13275",
+        "6471",
+        "24404",
+        "323934",
+        "105011",
+        "195687",
+        "231449",
+        "232049"
+      ],
+      "stats": {
+        "turns": 5,
+        "searches": 11,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 32764,
+        "output_tokens": 1003,
+        "reported": true,
+        "padded": 2,
+        "llm_time_s": 6.545980999828316,
+        "queries": [
+          "401k rollover after business closed",
+          "401k transfer company closure",
+          "401k plan terminated employer bankrupt rollover IRA",
+          "company went out of business 401k what happens",
+          "employer closed business 401k plan terminate distribution",
+          "my employer shut down, move 401k money to IRA",
+          "business dissolved 401k plan rollover",
+          "closing my business solo 401k transfer to IRA",
+          "401k plan sponsor closed company trustee-to-trustee transfer",
+          "former employer company folded 401k account still there",
+          "401k after company bankruptcy liquidation rollover options"
+        ]
+      }
+    },
+    {
+      "qid": "4011",
+      "recall@10": 0.6666666666666666,
+      "ndcg@10": 0.7653606369886217,
+      "latency_s": 4.675104800029658,
+      "ranked": [
+        "136367",
+        "67699",
+        "334574",
+        "105567",
+        "278711",
+        "38377",
+        "45665",
+        "403450",
+        "562784",
+        "571487"
+      ],
+      "stats": {
+        "turns": 4,
+        "searches": 5,
+        "reads": 2,
+        "messages": 0,
+        "input_tokens": 18766,
+        "output_tokens": 570,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 4.002243099967018,
+        "queries": [
+          "spouse compulsive spending",
+          "husband overspending wife budget",
+          "partner compulsive shopping debt marriage",
+          "spender spouse separate accounts budget agreement",
+          "spending addiction therapist counselor spouse debt"
+        ]
+      }
+    },
+    {
+      "qid": "4700",
+      "recall@10": 1.0,
+      "ndcg@10": 1.0,
+      "latency_s": 3.9810703999828547,
+      "ranked": [
+        "345137",
+        "124180",
+        "547598",
+        "91788",
+        "230297",
+        "54251",
+        "33987",
+        "217870",
+        "423569",
+        "495962"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11273,
+        "output_tokens": 474,
+        "reported": true,
+        "padded": 0,
+        "llm_time_s": 3.1223191000754014,
+        "queries": [
+          "finance company loan vs bank loan credit score",
+          "personal loan credit score hard inquiry finance company",
+          "consumer finance company loan interest rates versus bank",
+          "rate shopping multiple lenders inquiries same window count as one",
+          "bad credit loan from finance company higher interest credit union"
+        ]
+      }
+    },
+    {
+      "qid": "6395",
+      "recall@10": 0.0,
+      "ndcg@10": 0.0,
+      "latency_s": 4.175328899989836,
+      "ranked": [
+        "22916",
+        "467463",
+        "584223",
+        "401447",
+        "581672",
+        "111301",
+        "194730",
+        "576976",
+        "285605",
+        "182272"
+      ],
+      "stats": {
+        "turns": 3,
+        "searches": 5,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 11649,
+        "output_tokens": 539,
+        "reported": true,
+        "padded": 4,
+        "llm_time_s": 3.5727934000315145,
+        "queries": [
+          "calendar spread option settlement",
+          "calendar spread expiration assignment",
+          "calendar spread settlement exercise",
+          "calendar spread different expiration dates front month expires",
+          "calendar spread cash settled"
+        ]
+      }
+    },
+    {
+      "qid": "852",
+      "recall@10": 1.0,
+      "ndcg@10": 0.45646838330896394,
+      "latency_s": 2.7993063000030816,
+      "ranked": [
+        "237450",
+        "116647",
+        "464277",
+        "573612",
+        "385955",
+        "531288",
+        "246996",
+        "431735",
+        "245702",
+        "159137"
+      ],
+      "stats": {
+        "turns": 2,
+        "searches": 3,
+        "reads": 0,
+        "messages": 0,
+        "input_tokens": 4374,
+        "output_tokens": 321,
+        "reported": true,
+        "padded": 3,
+        "llm_time_s": 2.334225400001742,
+        "queries": [
+          "Dalbar average investor underperform",
+          "Dalbar QAIB average investor returns",
+          "average investor lose money market timing"
+        ]
+      }
+    }
+  ]
+}
