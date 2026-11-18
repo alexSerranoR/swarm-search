@@ -22,5 +22,9 @@ def rrf(rankings: list[list[str]], k: int = 60) -> list[str]:
         A = ["x", "y"], B = ["y"]
         y: 1/62 + 1/61   x: 1/61   ->  ["y", "x"]
     """
-    # TODO: implementa
-    raise NotImplementedError
+    puntos = {}
+    for lista in rankings:
+        for i, doc in enumerate(lista):
+            puntos[doc] = puntos.get(doc, 0) + 1 / (k + i + 1)
+    return sorted(puntos, key=puntos.get, reverse=True)
+
