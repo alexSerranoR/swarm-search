@@ -1,14 +1,15 @@
-"""Fase 3: un agente buscador con el bucle de tools escrito a mano (sin frameworks).
+"""Single retrieval agent with a hand-written tool loop (no frameworks).
 
-Cómo funciona un episodio (igual que SID-2, pero sin entrenar, solo con prompting):
-    1. El modelo recibe la pregunta y 3 herramientas: search, read_doc y report_ids.
-    2. Busca, lee los snippets, reformula y vuelve a buscar (puede lanzar varias búsquedas
-       en paralelo en el mismo turno).
-    3. Cuando cree que tiene lo necesario, llama a report_ids con un ranking de IDs.
-    4. Si se queda sin turnos, rellenamos con BM25 de la pregunta original (y lo contamos).
+One episode (same shape as SID-2, but prompted instead of RL-trained):
+    1. The model gets the query and 3 tools: search, read_doc and report_ids.
+    2. It searches, reads snippets, reformulates and searches again (it can issue several
+       searches in parallel in a single turn).
+    3. When it is confident, it calls report_ids with a ranked list of doc IDs.
+    4. If it reports fewer than k IDs (or runs out of turns), the ranking is padded with
+       BM25 results for the original query. Padding is counted in the stats.
 
-El bucle está en `run_episode()`. Léelo despacio: ESTO es un harness de agente.
-El swarm (agents/swarm.py) reutiliza este mismo bucle añadiendo herramientas y un buzón.
+The loop lives in `run_episode()`. The swarm (agents/swarm.py) reuses this exact loop,
+adding a `message` tool and an inbox.
 """
 import json
 import os
@@ -19,13 +20,13 @@ import anthropic
 
 from retrievers.bm25_retriever import BM25Retriever
 
-# Modelo barato y rápido. Cámbialo con la variable de entorno AGENT_MODEL si quieres.
+# Small, fast model. Override with the AGENT_MODEL environment variable.
 MODEL = os.environ.get("AGENT_MODEL", "claude-haiku-5-5")
-MAX_TURNS = 8          # SID-2 usa un límite de turnos parecido; si lo agota, cortamos
-SEARCH_LIMIT = 10      # resultados por búsqueda
-SNIPPET_WORDS = 60     # tamaño de cada snippet
+MAX_TURNS = 8          # hard cap on model turns per episode (SID-2 uses a similar limit)
+SEARCH_LIMIT = 10      # results per search call
+SNIPPET_WORDS = 60     # snippet size in words
 
-# Cada dataset tiene su descripción del corpus, su tarea y su criterio de relevancia.
+# Per-dataset corpus description, task and relevance guidance.
 PROFILES = {
     "scifact": {
         "prefix": "Claim",
@@ -64,7 +65,7 @@ def system_prompt(dataset: str) -> str:
     return SYSTEM_TEMPLATE.format(**PROFILES[dataset])
 
 
-SYSTEM_PROMPT = system_prompt("scifact")  # compatibilidad
+SYSTEM_PROMPT = system_prompt("scifact")  # backwards compatibility
 
 TOOLS = [
     {
@@ -110,20 +111,20 @@ class SearchAgent:
         self.corpus = corpus
         self.model = model
         self.verbose = verbose
-        self.client = anthropic.Anthropic()  # lee ANTHROPIC_API_KEY del entorno
+        self.client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from the environment
         self.dataset = dataset
         self.system = system_prompt(dataset)
         self.prefix = PROFILES[dataset]["prefix"]
         self.last_stats: dict = {}
 
-    # ---------------- herramientas ----------------
+    # ---------------- tools ----------------
 
     def _tool_search(self, query: str, seen: set[str]) -> str:
         lines = []
         for doc_id, score in self.bm25.search_with_scores(query, SEARCH_LIMIT):
             title = self.corpus[doc_id]["title"]
             if doc_id in seen:
-                # Gestión de contexto al estilo SID-2: no repetimos texto ya visto.
+                # SID-2-style context management: never repeat text the agent has already seen.
                 lines.append(f"[{doc_id}] {title}  (already seen)")
             else:
                 seen.add(doc_id)
@@ -135,7 +136,7 @@ class SearchAgent:
             return f"Unknown doc_id: {doc_id}"
         return self.bm25.full_text(doc_id)
 
-    # ---------------- el bucle (el harness) ----------------
+    # ---------------- the loop (the harness) ----------------
 
     def run_episode(
         self,
@@ -146,11 +147,11 @@ class SearchAgent:
         inbox: Callable[[], str] | None = None,
         tag: str = "",
     ) -> tuple[list[str], dict]:
-        """Un episodio completo. Devuelve (IDs reportados SIN rellenar, estadísticas).
+        """Run one full episode. Returns (reported IDs, not padded; stats).
 
-        extra_tools / handle_extra: herramientas adicionales (el swarm añade `message`).
-        inbox: función que devuelve mensajes nuevos de otros agentes; se añaden al
-               siguiente resultado de herramienta, igual que en SID-2.
+        extra_tools / handle_extra: additional tools (the swarm adds `message`).
+        inbox: callable returning new messages from teammates; they are appended to the
+               next tool result, as in SID-2.
         """
         system = system or self.system
         tools = TOOLS + (extra_tools or [])
@@ -173,14 +174,14 @@ class SearchAgent:
             stats["input_tokens"] += response.usage.input_tokens
             stats["output_tokens"] += response.usage.output_tokens
 
-            # Guardamos la respuesta del modelo en el historial
+            # Append the model's turn to the history
             messages.append({"role": "assistant", "content": response.content})
 
             tool_calls = [b for b in response.content if b.type == "tool_use"]
             if not tool_calls:
-                break  # el modelo ha contestado sin usar tools: fin del episodio
+                break  # the model answered without calling a tool: episode over
 
-            # Ejecutamos TODAS las tool calls del turno (pueden venir varias en paralelo)
+            # Execute ALL tool calls of this turn (there may be several in parallel)
             results = []
             done = False
             for call in tool_calls:
@@ -209,7 +210,7 @@ class SearchAgent:
             if done:
                 break
 
-            # Buzón: los mensajes de otros agentes llegan pegados al último resultado
+            # Inbox: teammates' messages are appended to the last tool result (as in SID-2)
             if inbox is not None:
                 news = inbox()
                 if news:
@@ -224,7 +225,7 @@ class SearchAgent:
         return clean, stats
 
     def pad_with_bm25(self, ranked: list[str], query: str, k: int, stats: dict) -> list[str]:
-        """Si hay menos de k IDs, rellena con BM25 de la pregunta original."""
+        """If there are fewer than k IDs, pad with BM25 results for the original query."""
         ranked = list(ranked)
         if len(ranked) < k:
             for d in self.bm25.search(query, k * 2):

@@ -1,9 +1,9 @@
-"""Carga un dataset en formato BEIR. Código de fontanería: ya está hecho.
+"""Load a dataset in BEIR format.
 
-Formato BEIR:
-- corpus.jsonl  -> {"_id", "title", "text"} por línea
-- queries.jsonl -> {"_id", "text"} por línea
-- qrels/test.tsv -> query-id \t corpus-id \t score   (score > 0 = relevante)
+BEIR layout:
+- corpus.jsonl   -> one {"_id", "title", "text"} per line
+- queries.jsonl  -> one {"_id", "text"} per line
+- qrels/test.tsv -> query-id \\t corpus-id \\t score   (score > 0 = relevant)
 """
 import csv
 import json
@@ -31,11 +31,11 @@ def load_queries(name: str = "scifact") -> dict[str, str]:
 
 
 def load_qrels(name: str = "scifact", split: str = "test") -> dict[str, dict[str, int]]:
-    """Devuelve {query_id: {doc_id: grado_de_relevancia}} solo con grados > 0."""
+    """Return {query_id: {doc_id: relevance_grade}}, keeping only grades > 0."""
     qrels: dict[str, dict[str, int]] = {}
     with open(DATA_DIR / name / "qrels" / f"{split}.tsv", encoding="utf-8") as f:
         reader = csv.reader(f, delimiter="\t")
-        next(reader)  # cabecera
+        next(reader)  # header
         for qid, did, score in reader:
             if int(score) > 0:
                 qrels.setdefault(qid, {})[did] = int(score)
@@ -43,7 +43,7 @@ def load_qrels(name: str = "scifact", split: str = "test") -> dict[str, dict[str
 
 
 def load_dataset(name: str = "scifact", split: str = "test"):
-    """Devuelve (corpus, queries, qrels) con solo las queries que tienen qrels en ese split."""
+    """Return (corpus, queries, qrels), keeping only queries that have qrels in `split`."""
     corpus = load_corpus(name)
     qrels = load_qrels(name, split)
     queries = {qid: t for qid, t in load_queries(name).items() if qid in qrels}

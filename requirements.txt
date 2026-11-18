@@ -1,6 +1,6 @@
-pytest>=8.0
-numpy>=1.26
-rank-bm25>=0.2.2
-# sentence-transformers>=3.0
-certifi>=2024.0
 anthropic>=0.40
+rank-bm25>=0.2.2
+numpy>=1.26
+certifi>=2024.0
+matplotlib>=3.8
+pytest>=8.0

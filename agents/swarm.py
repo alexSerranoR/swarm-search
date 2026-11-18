@@ -1,16 +1,16 @@
-"""Fase 4: la pregunta central del paper de SID-2.
+"""Multi-agent retrieval: the central question of the SID-2 report.
 
-Con el MISMO presupuesto (N agentes, mismos turnos máximos, mismo modelo):
-    rrf_n  -> N agentes independientes; al final fusionamos sus rankings con TU rrf()
-    swarm  -> N agentes en paralelo que pueden mandarse mensajes mientras buscan;
-              al final también fusionamos con rrf() (igual que SID-2)
+With the SAME budget (N agents, same max turns, same model):
+    rrf_n  -> N independent agents; their rankings are fused with rrf()
+    swarm  -> N agents running in parallel that can message each other while searching;
+              their rankings are also fused with rrf() (as in SID-2)
 
-La única diferencia entre los dos es la COMUNICACIÓN. Si el swarm gana, coordinar aporta.
+The only difference between the two is COMMUNICATION.
 
-Simplificaciones respecto a SID-2 (cuéntalas si publicas resultados):
-- Sin `fork` ni `wait`: siempre hay N agentes fijos desde el principio.
-- Sin entrenamiento (RL): solo prompting. La Figura 4 del paper dice que eso limita mucho.
-- `message` es un broadcast a todos (un tablón compartido), no mensajes 1 a 1.
+Simplifications vs. SID-2:
+- No `fork` / `wait`: always N fixed agents from the start.
+- No RL training: prompting only (SID-2's Figure 4 suggests this limits gains).
+- `message` is a broadcast to all teammates (a shared board), not 1-to-1 messaging.
 """
 import os
 import threading
@@ -56,7 +56,7 @@ higher-numbered agents should favor alternative wordings and related concepts.""
 
 
 class Board:
-    """Tablón compartido. Cada agente tiene un cursor: solo recibe lo que no ha visto."""
+    """Shared message board. Each agent has a cursor and only receives posts it has not seen."""
 
     def __init__(self, n: int):
         self.lock = threading.Lock()
@@ -80,10 +80,10 @@ def _merge_stats(all_stats: list[dict], wall_time: float) -> dict:
         for key in ("turns", "searches", "reads", "messages", "input_tokens", "output_tokens"):
             merged[key] += s[key]
         merged["reported"] = merged["reported"] or s["reported"]
-    merged["llm_time_s"] = wall_time  # en paralelo: cuenta el tiempo real, no la suma
+    merged["llm_time_s"] = wall_time  # agents run in parallel: wall-clock, not the sum
     merged["agents"] = len(all_stats)
     merged["agents_reported"] = sum(1 for s in all_stats if s["reported"])
-    # Coordinación medible: % de búsquedas que repiten EXACTAMENTE la de otro agente
+    # Measurable coordination: % of searches that EXACTLY repeat another agent's query
     norm = [[q.strip().lower() for q in s.get("queries", [])] for s in all_stats]
     total = sum(len(qs) for qs in norm)
     dup = 0
@@ -100,7 +100,7 @@ class _MultiAgentBase:
 
     def __init__(self, corpus: dict[str, dict], n: int = N_AGENTS, verbose: bool = False,
                  dataset: str = "scifact"):
-        bm25 = BM25Retriever(corpus)  # un solo índice compartido por todos los agentes
+        bm25 = BM25Retriever(corpus)  # one index shared by all agents
         self.n = n
         self.agents = [SearchAgent(corpus, verbose=verbose, bm25=bm25, dataset=dataset)
                        for _ in range(n)]
@@ -146,10 +146,10 @@ class _MultiAgentBase:
 
 
 class RRFEnsemble(_MultiAgentBase):
-    """N agentes independientes + RRF (la línea base del paper)."""
+    """N independent agents + RRF (the report's baseline)."""
     coordinated = False
 
 
 class Swarm(_MultiAgentBase):
-    """N agentes que se comunican mientras buscan + RRF."""
+    """N agents that communicate while searching + RRF."""
     coordinated = True

@@ -1,13 +1,11 @@
-"""Runner de evaluación: ejecuta un buscador sobre todas las queries y agrega métricas.
-Usa TUS métricas de evals/metrics.py.
+"""Evaluation runner: runs a retriever over the test queries and aggregates metrics.
 
-Uso:
+Usage:
     python evals/run_eval.py --retriever random
-    python evals/run_eval.py --retriever bm25
-    python evals/run_eval.py --retriever agent --limit 5 --verbose   # prueba barata primero
-    python evals/run_eval.py --retriever agent --limit 50
-    python evals/run_eval.py --retriever rrf_n --limit 30     # fase 4: N agentes independientes + RRF
-    python evals/run_eval.py --retriever swarm --limit 30     # fase 4: N agentes que se hablan + RRF
+    python evals/run_eval.py --retriever bm25 --limit 50
+    python evals/run_eval.py --retriever agent --limit 5 --verbose     # cheap smoke test first
+    python evals/run_eval.py --retriever rrf_n --limit 30              # N independent agents + RRF
+    python evals/run_eval.py --retriever swarm --limit 30              # N communicating agents + RRF
     python evals/run_eval.py --dataset fiqa --retriever swarm --agents 6 --limit 100
 """
 import argparse
@@ -49,13 +47,13 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--retriever", default="random")
     parser.add_argument("--dataset", default="scifact")
-    parser.add_argument("--limit", type=int, default=None, help="evaluar solo N queries")
-    parser.add_argument("--verbose", action="store_true", help="mostrar las tool calls del agente")
-    parser.add_argument("--agents", type=int, default=3, help="nº de agentes para rrf_n y swarm")
+    parser.add_argument("--limit", type=int, default=None, help="evaluate only the first N queries")
+    parser.add_argument("--verbose", action="store_true", help="print every agent tool call")
+    parser.add_argument("--agents", type=int, default=3, help="number of agents for rrf_n and swarm")
     args = parser.parse_args()
 
     corpus, queries, qrels = load_dataset(args.dataset)
-    print(f"Construyendo '{args.retriever}' sobre {len(corpus)} documentos...")
+    print(f"Building '{args.retriever}' over {len(corpus)} documents...")
     retriever = build_retriever(args.retriever, corpus, args.verbose, args.dataset, args.agents)
 
     qids = list(queries)[: args.limit] if args.limit else list(queries)
@@ -72,13 +70,13 @@ def main() -> None:
             "latency_s": latency,
             "ranked": ranked,
         }
-        # Los agentes guardan estadísticas del episodio (turnos, tokens...) en last_stats
+        # Agents store per-episode stats (turns, tokens, ...) in last_stats
         stats = getattr(retriever, "last_stats", None)
         if stats:
             row["stats"] = dict(stats)
         per_query.append(row)
         if args.verbose or (stats and n_done % 10 == 0):
-            extra = f"  turnos={stats['turns']} busquedas={stats['searches']}" if stats else ""
+            extra = f"  turns={stats['turns']} searches={stats['searches']}" if stats else ""
             print(f"[{n_done}/{len(qids)}] {qid}  ndcg={row['ndcg@10']:.2f}{extra}")
     total = time.perf_counter() - t0
 
@@ -111,21 +109,21 @@ def main() -> None:
     out = ROOT / "results" / f"{args.dataset}_{name}{suffix}.json"
     out.write_text(json.dumps({"summary": summary, "per_query": per_query}, indent=2))
 
-    print(f"\n{args.retriever} en {args.dataset} ({n} queries)")
+    print(f"\n{args.retriever} on {args.dataset} ({n} queries)")
     print(f"  recall@10 : {summary['recall@10']:.3f}")
     print(f"  ndcg@10   : {summary['ndcg@10']:.3f}")
-    print(f"  latencia  : {summary['mean_latency_s'] * 1000:.1f} ms/query")
+    print(f"  latency   : {summary['mean_latency_s'] * 1000:.1f} ms/query")
     if with_stats:
-        print(f"  turnos    : {summary['mean_turns']:.1f} de media, "
-              f"{summary['mean_searches']:.1f} busquedas/query")
+        print(f"  turns     : {summary['mean_turns']:.1f} mean, "
+              f"{summary['mean_searches']:.1f} searches/query")
         print(f"  tokens    : {summary['total_input_tokens']:,} input / "
-              f"{summary['total_output_tokens']:,} output (míralo en la Console para el coste)")
-        print(f"  reportó   : {summary['pct_reported'] * 100:.0f}% de las queries")
+              f"{summary['total_output_tokens']:,} output")
+        print(f"  reported  : {summary['pct_reported'] * 100:.0f}% of queries")
         if summary["mean_messages"]:
-            print(f"  mensajes  : {summary['mean_messages']:.1f} por query entre agentes")
+            print(f"  messages  : {summary['mean_messages']:.1f} per query")
         if "dup_query_rate" in summary:
-            print(f"  duplicadas: {summary['dup_query_rate'] * 100:.0f}% de las busquedas repiten la de otro agente")
-    print(f"  guardado en {out.relative_to(ROOT)}")
+            print(f"  dup. queries: {summary['dup_query_rate'] * 100:.0f}% of searches repeat another agent's query")
+    print(f"  saved to {out.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

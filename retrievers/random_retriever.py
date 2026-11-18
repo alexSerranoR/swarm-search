@@ -1,7 +1,7 @@
-"""Buscador aleatorio: el 'suelo absoluto'. Sirve para probar que el pipeline funciona.
+"""Random retriever: the absolute floor, used to sanity-check the pipeline.
 
-Todo buscador de este proyecto sigue la misma interfaz:
-    search(query: str, k: int) -> list[str]   # doc_ids ordenados
+Every retriever in this project exposes the same interface:
+    search(query: str, k: int) -> list[str]   # ranked doc IDs
 """
 import random
 

@@ -1,30 +1,24 @@
-"""Reciprocal Rank Fusion. 👉 ESTO LO IMPLEMENTAS TÚ.
-
-Comprueba con:  pytest tests/test_rrf.py -v
-"""
+"""Reciprocal Rank Fusion (Cormack et al., 2009)."""
 
 
 def rrf(rankings: list[list[str]], k: int = 60) -> list[str]:
-    """Fusiona varios rankings en uno.
+    """Fuse several rankings into one.
 
-    Cada documento suma, por cada lista en la que aparece:  1 / (k + posición)
-    con la posición empezando en 1. Si no aparece en una lista, esa lista no le suma nada.
+    Each document scores, for every ranking it appears in, 1 / (k + rank),
+    with rank starting at 1. Documents missing from a ranking get nothing from it.
 
     Args:
-        rankings: lista de rankings; cada ranking es una lista de doc_ids ordenada.
-        k:        constante de suavizado (60 es el valor estándar).
+        rankings: list of rankings; each ranking is an ordered list of doc IDs.
+        k:        smoothing constant (60 is the standard value).
 
     Returns:
-        Lista de doc_ids ordenada por puntuación RRF de mayor a menor.
-        En caso de empate, cualquier orden vale (los tests no dependen de ello).
+        Doc IDs sorted by fused score, highest first.
 
-    Ejemplo:
-        A = ["x", "y"], B = ["y"]
-        y: 1/62 + 1/61   x: 1/61   ->  ["y", "x"]
+    Example:
+        A = ["x", "y"], B = ["y"]   ->   y: 1/62 + 1/61,  x: 1/61   ->  ["y", "x"]
     """
-    puntos = {}
-    for lista in rankings:
-        for i, doc in enumerate(lista):
-            puntos[doc] = puntos.get(doc, 0) + 1 / (k + i + 1)
-    return sorted(puntos, key=puntos.get, reverse=True)
-
+    scores: dict[str, float] = {}
+    for ranking in rankings:
+        for i, doc in enumerate(ranking):
+            scores[doc] = scores.get(doc, 0) + 1 / (k + i + 1)
+    return sorted(scores, key=scores.get, reverse=True)

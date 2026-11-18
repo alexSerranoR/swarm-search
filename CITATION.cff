@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite it as below."
+title: "swarm-search: do coordinated agent swarms search better than independent agents?"
+authors:
+  - family-names: "Serrano Ruibal"
+    given-names: "Alejandro"
+date-released: 2026-11-18
+license: MIT
+repository-code: "https://github.com/alexSerranoR/swarm-search"
+keywords:
+  - information retrieval
+  - agentic search
+  - multi-agent systems
+  - LLM agents
+  - reciprocal rank fusion
+  - BEIR

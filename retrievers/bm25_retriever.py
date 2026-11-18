@@ -1,7 +1,7 @@
-"""BM25: el buscador clásico por palabras clave. Baseline de RAG clásico (fase 2).
+"""BM25 keyword retriever.
 
-También es la herramienta de búsqueda que usarán el agente (fase 3) y el swarm (fase 4),
-igual que SID usa BM25 como una de las tools de sus agentes.
+Used both as the classic-retrieval baseline and as the `search` tool of every agent
+(SID-2 also gives its agents a BM25 tool).
 """
 import re
 
@@ -9,7 +9,7 @@ from rank_bm25 import BM25Okapi
 
 
 def tokenize(text: str) -> list[str]:
-    """Minúsculas y palabras alfanuméricas (quita la puntuación)."""
+    """Lowercase alphanumeric tokens (punctuation removed)."""
     return re.findall(r"\w+", text.lower())
 
 
@@ -33,10 +33,10 @@ class BM25Retriever:
         return [doc_id for doc_id, _ in self.search_with_scores(query, k)]
 
     def snippet(self, doc_id: str, query: str, size: int = 60) -> str:
-        """Devuelve la ventana de `size` palabras del documento con más palabras de la query.
+        """Return the `size`-word window of the document with the most query terms.
 
-        Es la idea de los 'snippets' de SID-2: el agente no lee documentos enteros en cada
-        búsqueda, solo el trozo más prometedor. Si le interesa, pide el documento completo.
+        Same idea as SID-2's snippets: search results show only the most promising
+        window of each document; the agent can read the full text if it needs to.
         """
         words = self.full_text(doc_id).split()
         if len(words) <= size:
