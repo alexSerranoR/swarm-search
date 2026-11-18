@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/assets/asr-logo.png" width="96" alt="ASR logo">
-</p>
-
 <h1 align="center">swarm-search</h1>
 
 <p align="center">
